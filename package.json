@@ -1,0 +1,33 @@
+{
+  "name": "ajmal-hussain-portfolio",
+  "version": "2.0.0",
+  "description": "Production-ready portfolio of Ajmal Hussain K M — software developer, builder, and community volunteer",
+  "author": {
+    "name": "Ajmal Hussain K M",
+    "email": "hello@example.com",
+    "url": "https://ajmal-hussain.com"
+  },
+  "homepage": "https://ajmal-hussain.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/port2"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "ai",
+    "iot",
+    "thrissur",
+    "ajmal-hussain"
+  ],
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'No tests configured'"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
