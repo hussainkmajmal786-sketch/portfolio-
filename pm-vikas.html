@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PM Vikas — Ajmal Hussain K M</title>
-<meta name="description" content="Pradhan Mantri Vikas programme internship by Ajmal Hussain K M.">
+<title>PM Vikas — Daily Class Journal — Ajmal Hussain K M</title>
+<meta name="description" content="Daily class journal from the PM Vikas IoT internship — Electronics, IoT, Digital Circuits & Networking sessions at IIIT Kottayam.">
 
 <!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -29,9 +29,11 @@
   --cobalt: #2a3eff;
   --butter: #ffd166;
   --rose: #ef476f;
+  --line: #1b1714;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:'JetBrains Mono', ui-monospace, monospace;
@@ -73,10 +75,14 @@ nav a::after{
 }
 nav a:hover::after, nav a:focus-visible::after{width:100%;}
 
-/* ============ CONTENT ============ */
+@media (max-width:680px){
+  nav{gap:14px; font-size:11px; padding:9px 16px;}
+}
+
+/* ============ PAGE HEADER ============ */
 .page-header {
-  padding: 160px 6vw 60px;
-  max-width: 900px;
+  padding: 140px 6vw 50px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -92,7 +98,6 @@ nav a:hover::after, nav a:focus-visible::after{width:100%;}
   border-radius: 999px;
   transition: all .2s;
 }
-
 .back-link:hover {
   background: var(--ink);
   color: var(--paper);
@@ -105,48 +110,538 @@ h1 {
   font-size:clamp(2.5rem, 6vw, 4.5rem);
   line-height:1;
   letter-spacing:-.03em;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 h1 em { color: var(--leaf); font-style: italic; }
 
 .lead {
   font-family:'Fraunces', serif;
-  font-size:clamp(1.2rem, 2vw, 1.6rem);
+  font-size:clamp(1.1rem, 2vw, 1.5rem);
   color:var(--ink-soft);
-  margin-bottom: 40px;
+  line-height:1.55;
+  max-width:720px;
+  margin-bottom: 20px;
 }
 
-.content-block {
-  padding: 40px 6vw 120px;
-  max-width: 900px;
-  margin: 0 auto;
+/* ============ COURSE BADGE ============ */
+.course-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--ink);
+  color:var(--paper);
+  padding:14px 24px;
+  border-radius:16px;
+  font-size:13px;
+  border:2px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ember);
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+.course-badge .badge-dot{
+  width:10px; height:10px; border-radius:50%;
+  background:var(--leaf);
+  box-shadow:0 0 0 0 rgba(31,107,58,.6);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(31,107,58,.6);}
+  70%{box-shadow:0 0 0 12px rgba(31,107,58,0);}
+  100%{box-shadow:0 0 0 0 rgba(31,107,58,0);}
+}
+.course-badge strong{color:var(--butter);}
+
+/* ============ STATS ROW ============ */
+.stats-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin:32px 0 10px;
+}
+.stat-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.06em;
+  background:var(--paper);
+  transition:all .2s;
+}
+.stat-pill:hover{
+  transform:translateY(-2px);
+  box-shadow:4px 4px 0 var(--ink);
+}
+.stat-pill .s-icon{font-size:16px;}
+.stat-pill:nth-child(1){background:var(--butter);}
+.stat-pill:nth-child(2){background:var(--ember); color:var(--paper);}
+.stat-pill:nth-child(3){background:var(--cobalt); color:var(--paper);}
+.stat-pill:nth-child(4){background:var(--leaf); color:var(--paper);}
+
+/* ============ INTRO CONTENT ============ */
+.intro-content{
+  padding:0 6vw 40px;
+  max-width:960px;
+  margin:0 auto;
+}
+.intro-content p{
+  font-size:15px;
+  margin-bottom:20px;
+  line-height:1.8;
+  max-width:720px;
+}
+.intro-content .highlight{
+  background:var(--butter);
+  padding:2px 6px;
+  border-radius:4px;
 }
 
-.content-block p {
-  font-size: 16px;
-  margin-bottom: 24px;
-  line-height: 1.8;
+/* ============ SECTION DIVIDER ============ */
+.section-divider{
+  max-width:960px;
+  margin:0 auto;
+  padding:0 6vw;
+}
+.section-divider hr{
+  border:none;
+  border-top:2px dashed var(--ink);
+  opacity:.3;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 40px 0;
+/* ============ JOURNAL HEADER ============ */
+.journal-section{
+  padding:60px 6vw 80px;
+  max-width:960px;
+  margin:0 auto;
+}
+.journal-heading{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:50px;
+  flex-wrap:wrap;
+}
+.journal-num{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px;
+  color:var(--ember);
+  letter-spacing:.2em;
+}
+.journal-title{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:clamp(1.8rem, 5vw, 3rem);
+  letter-spacing:-.02em;
+  line-height:1;
+}
+.journal-title em{font-style:italic; color:var(--cobalt);}
+
+/* ============ TIMELINE ============ */
+.timeline{
+  position:relative;
+  padding-left:48px;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:18px;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:repeating-linear-gradient(
+    to bottom,
+    var(--ink) 0px,
+    var(--ink) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  opacity:.3;
 }
 
-.placeholder-img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: var(--paper-deep);
-  border: 2px solid var(--ink);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Caveat', cursive;
-  font-size: 24px;
-  color: var(--ink-soft);
+/* ============ DAY CARD ============ */
+.day-card{
+  position:relative;
+  margin-bottom:32px;
+  border:2px solid var(--ink);
+  border-radius:18px;
+  background:var(--paper);
+  overflow:hidden;
+  transition:transform .3s, box-shadow .3s;
+}
+.day-card:hover{
+  transform:translateY(-3px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+
+/* timeline dot */
+.day-card::before{
+  content:'';
+  position:absolute;
+  left:-38px;
+  top:28px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  border:3px solid var(--ink);
+  background:var(--paper);
+  z-index:2;
+}
+.day-card[data-color="ember"]::before{background:var(--ember);}
+.day-card[data-color="cobalt"]::before{background:var(--cobalt);}
+.day-card[data-color="leaf"]::before{background:var(--leaf);}
+.day-card[data-color="butter"]::before{background:var(--butter);}
+.day-card[data-color="rose"]::before{background:var(--rose);}
+
+/* connector line from dot to card */
+.day-card::after{
+  content:'';
+  position:absolute;
+  left:-24px;
+  top:33px;
+  width:24px;
+  height:3px;
+  background:var(--ink);
+  opacity:.3;
+}
+
+/* ============ DAY HEADER (clickable) ============ */
+.day-header{
+  padding:22px 26px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  user-select:none;
+  transition:background .2s;
+}
+.day-header:hover{
+  background:rgba(27,23,20,.04);
+}
+
+.day-number{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:1.6rem;
+  line-height:1;
+  min-width:70px;
+  color:var(--ink);
+}
+.day-card[data-color="ember"] .day-number{color:var(--ember);}
+.day-card[data-color="cobalt"] .day-number{color:var(--cobalt);}
+.day-card[data-color="leaf"] .day-number{color:var(--leaf);}
+.day-card[data-color="butter"] .day-number{color:var(--ink);}
+.day-card[data-color="rose"] .day-number{color:var(--rose);}
+
+.day-meta{
+  flex:1;
+  min-width:200px;
+}
+.day-title{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.15rem;
+  line-height:1.2;
+  margin-bottom:6px;
+}
+.day-subtitle{
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.day-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+}
+.day-tag{
+  font-size:10px;
+  padding:3px 10px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  background:transparent;
+}
+.day-card[data-color="ember"] .day-tag{border-color:var(--ember); color:var(--ember);}
+.day-card[data-color="cobalt"] .day-tag{border-color:var(--cobalt); color:var(--cobalt);}
+.day-card[data-color="leaf"] .day-tag{border-color:var(--leaf); color:var(--leaf);}
+.day-card[data-color="rose"] .day-tag{border-color:var(--rose); color:var(--rose);}
+
+.day-toggle{
+  font-size:22px;
+  transition:transform .35s cubic-bezier(.4,.2,.2,1);
+  opacity:.5;
+  flex-shrink:0;
+}
+.day-card.open .day-toggle{
+  transform:rotate(45deg);
+  opacity:1;
+}
+
+/* ============ DAY BODY (expandable) ============ */
+.day-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.4,.2,.2,1);
+}
+.day-card.open .day-body{
+  max-height:8000px;
+  transition:max-height .7s ease-in;
+}
+
+.day-content{
+  padding:0 26px 28px;
+  border-top:2px dashed rgba(27,23,20,.15);
+}
+
+/* ============ TOPIC BLOCK ============ */
+.topic-block{
+  margin-top:24px;
+}
+.topic-label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ember);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.topic-label::before{
+  content:'';
+  width:16px; height:2px;
+  background:currentColor;
+}
+
+.topic-block h4{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.1rem;
+  margin-bottom:8px;
+}
+
+.topic-block p,
+.topic-block li{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--ink);
+}
+.topic-block ul, .topic-block ol{
+  padding-left:20px;
+  margin-bottom:12px;
+}
+.topic-block li{
+  margin-bottom:6px;
+}
+
+/* ============ CALLOUT BOX ============ */
+.callout{
+  border:2px solid var(--ink);
+  border-radius:12px;
+  padding:18px 20px;
+  margin:16px 0;
+  position:relative;
+  background:var(--paper-deep);
+}
+.callout.formula{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'JetBrains Mono', monospace;
+  font-size:14px;
+  letter-spacing:.02em;
+}
+.callout.formula .callout-label{color:var(--butter);}
+.callout.tip{
+  background:var(--butter);
+  border-color:var(--ink);
+}
+.callout.important{
+  background:var(--ember);
+  color:var(--paper);
+}
+.callout-label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  opacity:.8;
+}
+.callout-text{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ============ EXERCISE BOX ============ */
+.exercise-box{
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:20px 22px;
+  margin:18px 0;
+  background:var(--paper);
+  box-shadow:4px 4px 0 var(--cobalt);
+  position:relative;
+}
+.exercise-box::before{
+  content:'TRY THIS';
+  position:absolute;
+  top:-10px;
+  left:16px;
+  background:var(--cobalt);
+  color:var(--paper);
+  font-family:'JetBrains Mono', monospace;
+  font-size:9px;
+  letter-spacing:.2em;
+  padding:3px 10px;
+  border-radius:4px;
+}
+.exercise-box li{
+  font-size:13px;
+  line-height:1.7;
+  margin-bottom:8px;
+  padding-left:6px;
+}
+.exercise-box li::marker{
+  content:'☐ ';
+  color:var(--cobalt);
+}
+
+/* ============ DATA TABLE ============ */
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  font-size:12px;
+  border:2px solid var(--ink);
+  border-radius:10px;
+  overflow:hidden;
+}
+.data-table th{
+  background:var(--ink);
+  color:var(--paper);
+  padding:10px 14px;
+  text-align:left;
+  font-weight:600;
+  letter-spacing:.06em;
+  font-size:11px;
+  text-transform:uppercase;
+}
+.data-table td{
+  padding:8px 14px;
+  border-bottom:1px solid rgba(27,23,20,.15);
+  font-size:13px;
+}
+.data-table tr:nth-child(even) td{
+  background:rgba(27,23,20,.03);
+}
+.data-table tr:last-child td{border-bottom:none;}
+
+/* ============ IoT CONCEPT CARD ============ */
+.concept-card{
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:20px;
+  margin:10px 0;
+  transition:transform .2s, box-shadow .2s;
+  background:var(--paper);
+}
+.concept-card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:4px 4px 0 var(--ink);
+}
+.concept-card h5{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:.95rem;
+  margin-bottom:4px;
+}
+.concept-card p{
+  font-size:12px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+.concept-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:12px;
+  margin:16px 0;
+}
+
+/* colored concept cards */
+.concept-card.c-ember{border-left:5px solid var(--ember);}
+.concept-card.c-cobalt{border-left:5px solid var(--cobalt);}
+.concept-card.c-leaf{border-left:5px solid var(--leaf);}
+.concept-card.c-rose{border-left:5px solid var(--rose);}
+.concept-card.c-butter{border-left:5px solid var(--butter);}
+
+/* ============ PROJECT IDEA CARD ============ */
+.idea-card{
+  border:3px solid var(--ink);
+  border-radius:20px;
+  padding:30px;
+  margin:20px 0;
+  background:linear-gradient(135deg, var(--butter) 0%, var(--paper) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.idea-card::before{
+  content:'💡';
+  font-size:60px;
+  position:absolute;
+  right:20px;
+  top:10px;
+  opacity:.15;
+}
+.idea-card h4{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+.idea-card p{
+  font-size:14px;
+  line-height:1.7;
+  max-width:600px;
+}
+
+/* ============ COLOR CODE VISUAL ============ */
+.color-band{
+  display:flex;
+  gap:0;
+  margin:12px 0;
+  border-radius:8px;
+  overflow:hidden;
+  border:2px solid var(--ink);
+  height:32px;
+}
+.color-band span{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.05em;
+}
+
+/* ============ SCRIBBLE NOTE ============ */
+.scribble{
+  font-family:'Caveat', cursive;
+  font-size:20px;
+  color:var(--ink-soft);
+  margin:16px 0 8px;
+  padding-left:4px;
+}
+.scribble::before{
+  content:'✎ ';
+  opacity:.5;
 }
 
 /* ============ FOOTER ============ */
@@ -160,37 +655,871 @@ footer{
   letter-spacing:.1em;
   flex-wrap:wrap; gap:14px;
 }
+footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; display:inline-block;}
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.25);}
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:680px){
+  .timeline{padding-left:32px;}
+  .timeline::before{left:10px;}
+  .day-card::before{left:-28px; width:12px; height:12px; top:24px;}
+  .day-card::after{left:-16px; width:16px; top:28px;}
+  .day-header{padding:16px 18px; gap:10px;}
+  .day-number{font-size:1.2rem; min-width:50px;}
+  .day-content{padding:0 18px 22px;}
+  .day-title{font-size:1rem;}
+  .concept-grid{grid-template-columns:1fr;}
+  .stats-row{gap:10px;}
+  .stat-pill{font-size:11px; padding:8px 14px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+  }
+  .reveal{opacity:1; transform:none;}
+}
 </style>
 </head>
 <body>
 
 <nav aria-label="Primary navigation">
-  <a href="index.html">← back to portfolio</a>
+  <a href="index.html">← portfolio</a>
+  <a href="#journal">journal</a>
+  <a href="#contact-footer">contact</a>
 </nav>
 
+<!-- ============ PAGE HEADER ============ -->
 <header class="page-header">
   <a href="index.html#projects" class="back-link">← Back to Projects</a>
   <h1>PM <em>Vikas</em></h1>
-  <p class="lead">Working as an IoT Assistant to build connected embedded systems and hardware solutions.</p>
-</header>
+  <p class="lead">
+    Working as an IoT Assistant Intern for the Pradhan Mantri Vishwakarma Kaushal Samman programme — learning electronics from scratch, building connected systems, and documenting every lesson along the way.
+  </p>
 
-<main class="content-block">
-  <p>The Pradhan Mantri Vishwakarma Kaushal Samman (PM Vikas) programme is a major initiative where I currently intern as an IoT Assistant. My work centers around designing, prototyping, and testing embedded systems and connected devices that support the programme's technological goals.</p>
-  
-  <p>In my role, I work with microcontrollers, sensors, and IoT protocols to build functional hardware solutions. This hands-on experience bridges the gap between theoretical hardware knowledge and deploying robust, real-world embedded systems.</p>
-
-  <div class="gallery">
-    <div class="placeholder-img">Image placeholder</div>
-    <div class="placeholder-img">Image placeholder</div>
+  <div class="course-badge">
+    <span class="badge-dot"></span>
+    <span><strong>Basics of Electronics</strong> &nbsp;·&nbsp; IIIT Kottayam</span>
   </div>
 
-  <p><em>More details and case studies about the specific impact we've made will be added to this page soon.</em></p>
-</main>
+  <div class="stats-row reveal">
+    <span class="stat-pill"><span class="s-icon">📅</span> 8 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">⚡</span> Electronics & Circuits</span>
+    <span class="stat-pill"><span class="s-icon">🔢</span> Digital Logic</span>
+    <span class="stat-pill"><span class="s-icon">🌐</span> IoT & Networks</span>
+  </div>
+</header>
 
-<footer>
+<!-- ============ INTRO ============ -->
+<div class="intro-content reveal">
+  <p>
+    This page is my <span class="highlight">daily learning journal</span> from the PM Vikas programme at IIIT Kottayam. It covers everything from basic resistor color codes to Boolean algebra, from Kirchhoff's laws to IoT architecture — each day documented with key concepts, formulas, and exercises. Click any day to expand the full notes.
+  </p>
+  <p>
+    The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), and <strong>Shajulin Sir</strong> (IoT).
+  </p>
+</div>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ JOURNAL TIMELINE ============ -->
+<section class="journal-section" id="journal">
+  <div class="journal-heading reveal">
+    <span class="journal-num">DAILY LOG</span>
+    <h2 class="journal-title">Class <em>Journal</em></h2>
+  </div>
+
+  <div class="timeline">
+
+    <!-- ================================ DAY 1 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-1">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 01</span>
+        <div class="day-meta">
+          <div class="day-title">Resistors, Ohm's Law, KCL & KVL</div>
+          <div class="day-subtitle">Dr. Anand — HOD ECE, IIIT Kottayam</div>
+          <div class="day-tags">
+            <span class="day-tag">Network Theory</span>
+            <span class="day-tag">Resistors</span>
+            <span class="day-tag">Ohm's Law</span>
+            <span class="day-tag">Kirchhoff</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Course Overview</div>
+            <p>Core areas covered: <strong>Network Theory</strong>, <strong>Circuits & Networks</strong>, <strong>Basic Electronics</strong>, and <strong>Rectification</strong>. Real-world example: understanding the hardware inside a heart rate monitor.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Rectification & Inside the Charger</div>
+            <p>Studied the internal components of a charger — full wave rectifier passing through a <strong>bridge rectifier</strong> to produce half-wave output, then filtered through <strong>RC, RLC, or LC filters</strong> (R = Resistance, L = Inductance, C = Capacitor).</p>
+            <div class="callout tip">
+              <div class="callout-label">Key Insight</div>
+              <div class="callout-text"><strong>RC filter</strong> is the most efficient. Output starts as fluctuating DC, converted by rectifier to actual DC. A <strong>potential/voltage divider</strong> (e.g., 12V → 5V) works using resistances.</div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Resistors</div>
+            <p>A resistor <strong>doesn't have polarity</strong> — it's a two-terminal device measured in Ohms. Modern electronics uses surface-mount resistors on boards.</p>
+
+            <p class="scribble">Resistor Color Code: B B R O Y G B V G W — S G</p>
+
+            <div class="color-band">
+              <span style="background:#000;color:#fff;">B</span>
+              <span style="background:#964B00;color:#fff;">B</span>
+              <span style="background:#f00;color:#fff;">R</span>
+              <span style="background:#ff8c00;color:#fff;">O</span>
+              <span style="background:#ff0;color:#000;">Y</span>
+              <span style="background:#0f0;color:#000;">G</span>
+              <span style="background:#00f;color:#fff;">B</span>
+              <span style="background:#8B00FF;color:#fff;">V</span>
+              <span style="background:#808080;color:#fff;">G</span>
+              <span style="background:#fff;color:#000;border-right:1px solid #ccc;">W</span>
+            </div>
+
+            <div class="callout">
+              <div class="callout-label">Series & Parallel</div>
+              <div class="callout-text">
+                <strong>Series:</strong> Current is same, voltage is different. R_total = R₁ + R₂ + ...<br>
+                <strong>Parallel:</strong> Voltage is same, current is different. 1/R_total = 1/R₁ + 1/R₂ + ...
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Ohm's Law</div>
+            <div class="callout formula">
+              <div class="callout-label">⚡ Formula</div>
+              <div class="callout-text">
+                V = R × I &nbsp;&nbsp;(at constant temperature)<br><br>
+                Ammeter → connected in <strong>Series</strong><br>
+                Voltmeter → connected in <strong>Parallel</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Kirchhoff's Laws</div>
+
+            <div class="callout formula">
+              <div class="callout-label">KCL — Kirchhoff's Current Law</div>
+              <div class="callout-text">Total current entering a node = Total current leaving the node.</div>
+            </div>
+
+            <div class="callout formula">
+              <div class="callout-label">KVL — Kirchhoff's Voltage Law</div>
+              <div class="callout-text">Total voltage rise across a closed loop = Total voltage drop.</div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Voltage & Current Divider Rules</div>
+            <div class="callout">
+              <div class="callout-label">Voltage Divider</div>
+              <div class="callout-text">
+                V(R₁) = R₁ / (R₁ + R₂) × V_total<br>
+                Example: 12V → 5V using two resistors
+              </div>
+            </div>
+            <div class="callout">
+              <div class="callout-label">Current Divider</div>
+              <div class="callout-text">Works inversely — verify theoretically and practically using simulators.</div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Advanced Analysis (Afternoon)</div>
+            <p>Topics covered post lunch break (1:00 PM): <strong>Nodal Analysis</strong>, <strong>Super Mesh Analysis</strong>, <strong>Super Node Analysis</strong>, <strong>Superposition Principle</strong>, and various <strong>Network Theorems</strong>.</p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Use online simulators or virtual labs to verify circuit behavior</li>
+              <li>Practice resistor color code identification</li>
+              <li>Calculate effective resistance in series & parallel circuits with currents</li>
+              <li>Solve problems on Ohm's Law, KCL, KVL, CDR, VDR (try with ChatGPT and simulators)</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 2 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-2">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 02</span>
+        <div class="day-meta">
+          <div class="day-title">Diodes & Rectifiers</div>
+          <div class="day-subtitle">Dr. Anand — HOD ECE, IIIT Kottayam</div>
+          <div class="day-tags">
+            <span class="day-tag">Diodes</span>
+            <span class="day-tag">Rectifiers</span>
+            <span class="day-tag">Applications</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Diodes</div>
+            <p>Studied the <strong>V-I characteristics</strong> of a diode — how current flows in forward bias and gets blocked in reverse bias. Explored using a <strong>diode as a switch</strong> in circuits.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Rectifiers</div>
+            <p>Built understanding of <strong>half wave rectifiers</strong> and <strong>full wave rectifiers</strong> — how diodes convert AC to pulsating DC. Explored bridge rectifier configurations.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Other Applications</div>
+            <p>Explored additional uses: <strong>clamper circuits</strong> and <strong>switch regulators</strong>. These are critical in power supply design and signal conditioning.</p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Plot the V-I characteristics of a diode</li>
+              <li>Demonstrate diode as a switch</li>
+              <li>Build a half wave rectifier circuit</li>
+              <li>Explain how diode works in a full wave rectifier</li>
+              <li>Research clamper and switch regulator circuits</li>
+            </ol>
+          </div>
+
+          <p class="scribble">Session wrapped up at 12:30 PM</p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 3 ================================ -->
+    <div class="day-card reveal" data-color="butter" id="day-3">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 03</span>
+        <div class="day-meta">
+          <div class="day-title">Computer Networks & VS Code Setup</div>
+          <div class="day-subtitle">Session 1 & 2 — IIIT Kottayam</div>
+          <div class="day-tags">
+            <span class="day-tag">IEEE 802.3</span>
+            <span class="day-tag">IEEE 802.11</span>
+            <span class="day-tag">Data Comm</span>
+            <span class="day-tag">Dev Setup</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Session 1 — Dev Environment Setup</div>
+            <p>Installed <strong>VS Code</strong> inside a virtual machine for coding and programming. Set up the workspace for future lab sessions.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Session 2 — Computer Networks</div>
+            <p>Introduction to basic concepts of computer networks. Covered <strong>IEEE 802.3</strong> (Ethernet) and <strong>IEEE 802.11</strong> (Wi-Fi) standards — their basics and connection types.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Data Communications</div>
+            <p>Explored the <strong>five components</strong> of data communication:</p>
+
+            <div class="concept-grid">
+              <div class="concept-card c-ember">
+                <h5>Sender</h5>
+                <p>The device that sends the data message, using protocols to structure it.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Medium</h5>
+                <p>The physical path by which the message travels from sender to receiver.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Message</h5>
+                <p>The information (data) to be communicated.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Receiver</h5>
+                <p>The device that receives the message, using protocols to decode it.</p>
+              </div>
+              <div class="concept-card c-butter">
+                <h5>Protocol</h5>
+                <p>The set of rules governing data communication between sender and receiver.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 4 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-4">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 04</span>
+        <div class="day-meta">
+          <div class="day-title">IoT Fundamentals & M2M Applications</div>
+          <div class="day-subtitle">Shajulin Sir — 13/04/2026</div>
+          <div class="day-tags">
+            <span class="day-tag">IoT</span>
+            <span class="day-tag">M2M</span>
+            <span class="day-tag">Smart Systems</span>
+            <span class="day-tag">Research</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Popular M2M Applications</div>
+            <div class="concept-grid">
+              <div class="concept-card c-leaf">
+                <h5>🏥 Healthcare</h5>
+                <p>Health and wellbeing monitoring systems</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>🏠 Smart Homes</h5>
+                <p>Intelligent wearable security systems</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>🏭 IIoT</h5>
+                <p>Logistics and cargo handling operations</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>🚗 ITS</h5>
+                <p>Automated traffic control solutions</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>🛒 Smart Retail</h5>
+                <p>Asset management, tracking, smart displays</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>💳 Smart Payments</h5>
+                <p>Cash payment and inventory management</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">IoT Subsets</div>
+            <table class="data-table">
+              <thead>
+                <tr><th>Subset</th><th>Focus Area</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>IIoT</strong></td><td>Industrial — smart factories, logistics</td></tr>
+                <tr><td><strong>CIoT</strong></td><td>Consumer — wearables, gadgets</td></tr>
+                <tr><td><strong>Space-IoT</strong></td><td>Overcoming terrestrial coverage limitations</td></tr>
+                <tr><td><strong>IoM</strong></td><td>Internet of Mirrors — beauty & healthcare</td></tr>
+                <tr><td><strong>IIoMT</strong></td><td>Intelligent Internet of Medical Things</td></tr>
+                <tr><td><strong>NSAIoT</strong></td><td>Neuro-symbolic AI + IoT for trustworthiness</td></tr>
+                <tr><td><strong>ITS</strong></td><td>AI-driven traffic, road safety, pedestrian prediction</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Research Domains & Challenges</div>
+            <p>Key challenge: achieving a <strong>trustworthy IoT ecosystem</strong> through advanced AI integration. Major application domains include <strong>Smart Cities</strong>, <strong>Smart Agriculture</strong>, and <strong>Smart Assisted Living</strong> — including special suits with integrated clothes that connect to mobile devices to monitor personal health.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 5 ================================ -->
+    <div class="day-card reveal" data-color="rose" id="day-5">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 05</span>
+        <div class="day-meta">
+          <div class="day-title">IoT Product Ideation — Smart Home & Cybersecurity</div>
+          <div class="day-subtitle">Task Session — Day 6 Activity</div>
+          <div class="day-tags">
+            <span class="day-tag">Project</span>
+            <span class="day-tag">Smart Home</span>
+            <span class="day-tag">Cybersecurity</span>
+            <span class="day-tag">IoT</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Task</div>
+            <p>Design a <strong>real-life product using IoT</strong> — solve a genuine problem by connecting it with IoT technology.</p>
+          </div>
+
+          <div class="idea-card">
+            <h4>Smart Home Integrating System with Cybersecurity</h4>
+            <p>
+              A smart city solution designed especially for <strong>elderly grandparents</strong> — integrating smart home automation with live traffic monitoring and a cybersecurity layer. All cameras, gadgets, and smart devices connect to the internet for seamless access.
+            </p>
+            <p style="margin-top:12px;">
+              <strong>Key features:</strong> Delivery personnel can access home/location easily. If a crime occurs, the cyber wing can instantly identify threats. <strong>Emergency SOS</strong> automatically sends alerts to appropriate bureaus. It's a plan for the future internet — a truly connected smart city.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 6 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-6">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 06</span>
+        <div class="day-meta">
+          <div class="day-title">History of Electronics & Components</div>
+          <div class="day-subtitle">Dr. Vineeth (Wireless Comm.) — 22/05/2026</div>
+          <div class="day-tags">
+            <span class="day-tag">IC Evolution</span>
+            <span class="day-tag">Active/Passive</span>
+            <span class="day-tag">Components</span>
+            <span class="day-tag">Tools</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Evolution of Electronics</div>
+            <p>Traced the journey from <strong>vacuum tubes</strong> to modern integrated circuits:</p>
+
+            <table class="data-table">
+              <thead>
+                <tr><th>Year</th><th>Milestone</th><th>Key Figure(s)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1904</td><td>Electrode Tube / Vacuum Tube</td><td>John Fleming</td></tr>
+                <tr><td>1906</td><td>Vacuum Triode (first transistor concept)</td><td>Lee De Forest</td></tr>
+                <tr><td>1947</td><td>Transistor invented → era of semiconductors</td><td>Bardeen, Brattain, Shockley (Bell Labs)</td></tr>
+                <tr><td>1957</td><td>Integrated Circuit (IC) demonstrated</td><td>Jack Kilby</td></tr>
+                <tr><td>—</td><td>SSI → MSI → VLSI → ULSI (Moore's Law)</td><td>Intel 4004 (4-bit microprocessor)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Active & Passive Devices</div>
+            <div class="callout">
+              <div class="callout-label">Key Distinction</div>
+              <div class="callout-text">
+                <strong>Passive:</strong> Cannot amplify — Resistor (resists electron flow, Ω), Capacitor (stores electric field, blocks DC, passes AC — Farad), Inductor (stores magnetic field, blocks AC, passes DC — Henry).<br><br>
+                <strong>Active:</strong> Can amplify/process signals — Transistors, Diodes. Classified into tube devices and semiconductor devices.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Lab Tools & Equipment</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>Breadboard</h5>
+                <p>For simple circuit prototyping</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>PCB</h5>
+                <p>For complex circuits, components on both sides</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Multimeter</h5>
+                <p>Measure voltage, current, resistance</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Function Generator</h5>
+                <p>Generate test signals</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>DSO</h5>
+                <p>Digital Storage Oscilloscope — visualize signals</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Soldering Kit</h5>
+                <p>Iron, flux, lead, cutter, wires</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Impact of Electronics</div>
+            <p>Explored applications in <strong>21st-century industry</strong>, communication & entertainment, medical field, and defence. <strong>Digital electronics</strong> is especially important for IoT — computers run on binary (1, 0).</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 7 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-7">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 07</span>
+        <div class="day-meta">
+          <div class="day-title">Digital Electronics — Logic Gates & Boolean Algebra</div>
+          <div class="day-subtitle">Dr. Vineeth — 22/05/2026 (continued)</div>
+          <div class="day-tags">
+            <span class="day-tag">Boolean</span>
+            <span class="day-tag">Logic Gates</span>
+            <span class="day-tag">Number Systems</span>
+            <span class="day-tag">K-Map</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Analog vs Digital</div>
+            <div class="callout">
+              <div class="callout-label">Key Difference</div>
+              <div class="callout-text">
+                <strong>Analog:</strong> Sinusoidal signals with infinite possible values — very difficult to process.<br>
+                <strong>Digital:</strong> Only two discrete values (0 and 1). Easier to process, noise-immune, modular designs possible.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Advantages of Digital Systems</div>
+            <p>Noise immunity · Power of abstraction · Modular designs · Faster design completion · Software tools ease · Programmability</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Logic Gates — The Building Blocks</div>
+            <table class="data-table">
+              <thead>
+                <tr><th>Gate</th><th>Circuit</th><th>Rule</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>AND</strong></td><td>Switches in series</td><td>Output 1 only if ALL inputs are 1</td></tr>
+                <tr><td><strong>OR</strong></td><td>Switches in parallel</td><td>Output 1 if ANY input is 1</td></tr>
+                <tr><td><strong>NOT</strong></td><td>Inverter</td><td>Output is the inverse of input</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-top:10px;font-size:13px;">Other gates: <strong>NAND</strong>, <strong>NOR</strong>, <strong>XOR</strong>, <strong>XNOR</strong>. Digital Trainer Kit uses ICs in <strong>Dual In-Line Package (DIP)</strong>.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Number Systems</div>
+            <p>Covered conversions between <strong>Decimal</strong>, <strong>Binary</strong>, <strong>Hexadecimal</strong>, and <strong>Octal</strong>. Also: <strong>1's complement</strong> and <strong>2's complement</strong> for signed numbers.</p>
+            <div class="callout formula">
+              <div class="callout-label">Example: Hex 2A → Decimal</div>
+              <div class="callout-text">
+                2A → Binary: 0010 1010<br>
+                Binary → Decimal: 0+0+32+0+8+0+2+0 = <strong>42</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Boolean Algebra — Core Laws</div>
+
+            <table class="data-table">
+              <thead>
+                <tr><th>Law</th><th>AND (·)</th><th>OR (+)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Identity</td><td>A · 1 = A</td><td>A + 0 = A</td></tr>
+                <tr><td>Null</td><td>A · 0 = 0</td><td>A + 1 = 1</td></tr>
+                <tr><td>Idempotent</td><td>A · A = A</td><td>A + A = A</td></tr>
+                <tr><td>Complement</td><td>A · A' = 0</td><td>A + A' = 1</td></tr>
+              </tbody>
+            </table>
+
+            <div class="callout formula" style="margin-top:14px;">
+              <div class="callout-label">De Morgan's Theorems</div>
+              <div class="callout-text">
+                (A + B)' = A' · B'<br>
+                (A · B)' = A' + B'
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:10px;">
+              <div class="callout-label">Other Laws</div>
+              <div class="callout-text">
+                <strong>Commutative:</strong> A+B = B+A, A·B = B·A<br>
+                <strong>Associative:</strong> A+(B+C) = (A+B)+C<br>
+                <strong>Distributive:</strong> A·(B+C) = A·B + A·C<br>
+                <strong>Absorption:</strong> A+(A·B) = A
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Karnaugh Map (K-Map)</div>
+            <p>A graphical method to simplify Boolean expressions. Uses <strong>Gray code ordering</strong> so adjacent cells differ by only one variable. Group adjacent 1s (for SOP) or 0s (for POS) to eliminate variables.</p>
+            <div class="callout tip">
+              <div class="callout-label">K-Map Rules</div>
+              <div class="callout-text">Groups must be 1, 2, 4, or 8 cells · Rectangular shapes only · Largest possible groups · Edge cells can wrap around · Diagonal cells are NOT adjacent</div>
+            </div>
+            <p style="font-size:13px;margin-top:8px;"><strong>Don't Care (X):</strong> Incomplete specified functions — treat as 0 or 1 to make larger groups, reducing gate count.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 8 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-8">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 08</span>
+        <div class="day-meta">
+          <div class="day-title">Combinational Circuits — Adders, MUX, Decoders</div>
+          <div class="day-subtitle">Dr. Vineeth — Continued</div>
+          <div class="day-tags">
+            <span class="day-tag">Half Adder</span>
+            <span class="day-tag">Full Adder</span>
+            <span class="day-tag">MUX/DEMUX</span>
+            <span class="day-tag">Encoder/Decoder</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Network Analysis & Synthesis</div>
+            <p><strong>Analysis:</strong> Given a circuit → find current, voltage, power (KCL, KVL, Mesh, Nodal, Superposition, Thevenin, Norton).<br>
+            <strong>Synthesis:</strong> Given a desired function → design the circuit using AND, OR, NOT gates (Sum of Products form).</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Half Adder</div>
+            <div class="callout formula">
+              <div class="callout-label">Equations</div>
+              <div class="callout-text">
+                Sum: &nbsp; S = A ⊕ B &nbsp;(XOR)<br>
+                Carry: C = A · B &nbsp;(AND)
+              </div>
+            </div>
+            <table class="data-table">
+              <thead><tr><th>A</th><th>B</th><th>Sum</th><th>Carry</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Full Adder</div>
+            <div class="callout formula">
+              <div class="callout-label">Equations</div>
+              <div class="callout-text">
+                Sum: &nbsp; S = A ⊕ B ⊕ Cᵢₙ<br>
+                Carry: Cₒᵤₜ = AB + Cᵢₙ(A ⊕ B)
+              </div>
+            </div>
+            <p style="font-size:13px;margin-top:8px;">Built using <strong>two half adders + one OR gate</strong>. Essential for multi-bit arithmetic.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Half & Full Subtractor</div>
+            <div class="callout formula">
+              <div class="callout-label">Half Subtractor</div>
+              <div class="callout-text">
+                Difference: D = A ⊕ B<br>
+                Borrow: &nbsp; Bₒᵤₜ = A' · B
+              </div>
+            </div>
+            <div class="callout formula" style="margin-top:8px;">
+              <div class="callout-label">Full Subtractor</div>
+              <div class="callout-text">
+                Difference: D = A ⊕ B ⊕ Bᵢₙ<br>
+                Borrow: &nbsp; Bₒᵤₜ = A'B + A'Bᵢₙ + BBᵢₙ
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Multiplexer (MUX) & Demultiplexer (DEMUX)</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>MUX — Data Selector</h5>
+                <p>Many inputs → one output. Uses selection lines. 4:1 MUX: Y = S₁'S₀'I₀ + S₁'S₀I₁ + S₁S₀'I₂ + S₁S₀I₃</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>DEMUX — Data Distributor</h5>
+                <p>One input → many outputs. 1:4 DEMUX distributes input D to one of Y₀–Y₃ based on selection.</p>
+              </div>
+            </div>
+            <table class="data-table" style="margin-top:12px;">
+              <thead><tr><th>Feature</th><th>MUX</th><th>DEMUX</th></tr></thead>
+              <tbody>
+                <tr><td>Function</td><td>Selects one input</td><td>Selects one output</td></tr>
+                <tr><td>Data Flow</td><td>Many → One</td><td>One → Many</td></tr>
+                <tr><td>Use</td><td>Data selection, TDM</td><td>Data distribution, memory addressing</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Encoders & Decoders</div>
+            <div class="concept-grid">
+              <div class="concept-card c-ember">
+                <h5>Encoder (8:3)</h5>
+                <p>2ⁿ inputs → n outputs. Converts active input line to binary code. Priority encoder handles multiple active inputs.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Decoder (3:8)</h5>
+                <p>n inputs → 2ⁿ outputs. Activates exactly one output based on binary input. Used in memory addressing & 7-segment displays.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 9 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-9">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 09</span>
+        <div class="day-meta">
+          <div class="day-title">Sequential Logic — Flip-Flops & State Machines</div>
+          <div class="day-subtitle">Dr. Vineeth — Continued</div>
+          <div class="day-tags">
+            <span class="day-tag">Flip-Flops</span>
+            <span class="day-tag">Counters</span>
+            <span class="day-tag">State Diagrams</span>
+            <span class="day-tag">Sequential</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Combinational vs Sequential</div>
+            <div class="callout">
+              <div class="callout-label">Key Difference</div>
+              <div class="callout-text">
+                <strong>Combinational:</strong> Output depends only on present inputs.<br>
+                <strong>Sequential:</strong> Output depends on present inputs + previous states (memory).
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Types of Sequential Circuits</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>Synchronous</h5>
+                <p>Uses clock signal. State changes at clock pulses. Easier to design. Examples: counters, registers, digital clocks.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>Asynchronous</h5>
+                <p>No clock. State changes immediately on input change. Faster but complex. Examples: ripple counters.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Flip-Flops — Memory Elements</div>
+            <table class="data-table">
+              <thead>
+                <tr><th>Type</th><th>Inputs</th><th>Behavior</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>SR</strong></td><td>S, R</td><td>Set/Reset. S=R=1 is invalid.</td></tr>
+                <tr><td><strong>JK</strong></td><td>J, K</td><td>Improved SR. J=K=1 → Toggle.</td></tr>
+                <tr><td><strong>D</strong></td><td>D</td><td>Stores input directly. D=0→Q=0, D=1→Q=1.</td></tr>
+                <tr><td><strong>T</strong></td><td>T</td><td>Toggle. T=0→No change, T=1→Toggle.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Design Steps for Sequential Circuits</div>
+            <ol style="font-size:13px; line-height:1.8;">
+              <li>Understand the problem — identify inputs, outputs, and states</li>
+              <li>Draw the <strong>state diagram</strong> (circles = states, arrows = transitions)</li>
+              <li>Create the <strong>state table</strong> (present state → next state)</li>
+              <li>Perform <strong>state assignment</strong> (binary codes to states)</li>
+              <li>Choose flip-flop type (D is simplest)</li>
+              <li>Derive flip-flop input equations using <strong>K-Maps</strong></li>
+              <li>Draw the final <strong>logic circuit diagram</strong></li>
+            </ol>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">State Assignment Methods</div>
+            <p style="font-size:13px;"><strong>Binary:</strong> States in binary order · <strong>Gray Code:</strong> One bit change between adjacent states · <strong>One-Hot:</strong> Each state uses one flip-flop</p>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">Design Tip</div>
+            <div class="callout-text">State reduction minimizes hardware by combining equivalent states. This reduces flip-flop count and simplifies the overall design.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .timeline -->
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact-footer">
   <span>&copy; 2026 — Ajmal Hussain K M</span>
-  <span>built with ♥ in Thrissur</span>
+  <span>built with <span class="heart">♥</span> in Thrissur</span>
+  <span>IIIT Kottayam · PM Vikas</span>
 </footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// ============ TOGGLE DAY CARDS ============
+function toggleDay(header) {
+  var card = header.closest('.day-card');
+  card.classList.toggle('open');
+}
+
+// ============ REVEAL ON SCROLL ============
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+// ============ OPEN FIRST CARD BY DEFAULT ============
+(function(){
+  var first = document.querySelector('.day-card');
+  if(first) first.classList.add('open');
+})();
+</script>
 
 </body>
 </html>
