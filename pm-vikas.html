@@ -644,6 +644,230 @@ h1 em { color: var(--leaf); font-style: italic; }
   opacity:.5;
 }
 
+/* ============ CURRICULUM ROADMAP ============ */
+.roadmap-section{
+  padding:30px 6vw 40px;
+  max-width:960px;
+  margin:0 auto;
+}
+.roadmap-heading{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+.roadmap-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:16px;
+}
+.phase-card{
+  border:2px solid var(--ink);
+  border-radius:16px;
+  padding:22px 20px;
+  background:var(--paper);
+  position:relative;
+  transition:transform .2s, box-shadow .2s;
+  overflow:hidden;
+}
+.phase-card:hover{
+  transform:translateY(-3px);
+  box-shadow:5px 5px 0 var(--ink);
+}
+.phase-card .phase-num{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--ink-soft);
+  margin-bottom:6px;
+}
+.phase-card h4{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.05rem;
+  line-height:1.25;
+  margin-bottom:10px;
+}
+.phase-card .phase-dates{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.04em;
+  padding:4px 10px;
+  border-radius:999px;
+  display:inline-block;
+  border:1.5px solid var(--ink);
+}
+.phase-card[data-phase="1"]{border-top:6px solid var(--ember);}
+.phase-card[data-phase="2"]{border-top:6px solid var(--cobalt);}
+.phase-card[data-phase="3"]{border-top:6px solid var(--leaf);}
+.phase-card[data-phase="4"]{border-top:6px solid var(--rose);}
+.phase-card .phase-status{
+  position:absolute;
+  top:14px; right:14px;
+  font-size:9px;
+  letter-spacing:.12em;
+  padding:3px 8px;
+  border-radius:4px;
+  font-family:'JetBrains Mono', monospace;
+}
+.phase-card .ps-done{background:var(--leaf); color:var(--paper);}
+.phase-card .ps-active{background:var(--ember); color:var(--paper);}
+.phase-card .ps-soon{background:var(--paper-deep); color:var(--ink-soft);}
+
+/* ============ TASKS / EXERCISE TRACKER ============ */
+.tasks-section{
+  padding:30px 6vw 50px;
+  max-width:960px;
+  margin:0 auto;
+}
+.tasks-heading{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+}
+.tasks-intro{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--ink-soft);
+  max-width:680px;
+  margin-bottom:24px;
+}
+/* progress bar */
+.progress-wrap{
+  margin:0 0 30px;
+  max-width:560px;
+}
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:8px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+  letter-spacing:.06em;
+}
+.progress-label strong{
+  font-family:'Fraunces', serif;
+  font-size:1.4rem;
+  color:var(--ember);
+}
+.progress-track{
+  height:18px;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  overflow:hidden;
+  position:relative;
+}
+.progress-fill{
+  height:100%;
+  width:20%;
+  background:repeating-linear-gradient(
+    45deg,
+    var(--ember) 0px,
+    var(--ember) 10px,
+    #ff7a45 10px,
+    #ff7a45 20px
+  );
+  border-radius:999px 0 0 999px;
+  transition:width 1s cubic-bezier(.4,.2,.2,1);
+}
+.task-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:16px;
+}
+.task-card{
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:20px;
+  background:var(--paper);
+  box-shadow:4px 4px 0 var(--leaf);
+  transition:transform .2s, box-shadow .2s;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.task-card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--leaf);
+}
+.task-card .task-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.task-card .task-check{
+  width:24px; height:24px;
+  border-radius:50%;
+  background:var(--leaf);
+  color:var(--paper);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  flex-shrink:0;
+  font-weight:700;
+}
+.task-card .task-num{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+}
+.task-card h4{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.02rem;
+  line-height:1.25;
+}
+.task-card p{
+  font-size:12.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  flex:1;
+}
+.task-card .task-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.task-card .task-tag{
+  font-size:9px;
+  padding:3px 9px;
+  border:1.5px solid var(--leaf);
+  color:var(--leaf);
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.task-card .task-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.04em;
+  padding:8px 14px;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  align-self:flex-start;
+  transition:all .2s;
+}
+.task-card .task-link:hover{
+  background:var(--ink);
+  color:var(--paper);
+  transform:translateX(3px);
+}
+
+@media (max-width:680px){
+  .roadmap-grid{grid-template-columns:1fr;}
+  .task-grid{grid-template-columns:1fr;}
+}
+
 /* ============ FOOTER ============ */
 footer{
   padding:40px 6vw;
@@ -694,6 +918,8 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
 <nav aria-label="Primary navigation">
   <a href="index.html">← portfolio</a>
+  <a href="#roadmap">roadmap</a>
+  <a href="#tasks">tasks</a>
   <a href="#journal">journal</a>
   <a href="#contact-footer">contact</a>
 </nav>
@@ -712,10 +938,10 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 8 Sessions Logged</span>
-    <span class="stat-pill"><span class="s-icon">⚡</span> Electronics & Circuits</span>
-    <span class="stat-pill"><span class="s-icon">🔢</span> Digital Logic</span>
-    <span class="stat-pill"><span class="s-icon">🌐</span> IoT & Networks</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 13 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">⚙️</span> 4 / 20 Projects Done</span>
+    <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
+    <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
   </div>
 </header>
 
@@ -728,6 +954,141 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), and <strong>Shajulin Sir</strong> (IoT).
   </p>
 </div>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ CURRICULUM ROADMAP ============ -->
+<section class="roadmap-section" id="roadmap">
+  <div class="roadmap-heading reveal">
+    <span class="journal-num">CURRICULUM</span>
+    <h2 class="journal-title">Programme <em>Roadmap</em></h2>
+  </div>
+  <p class="tasks-intro reveal" style="margin-bottom:24px;">
+    The internship runs across four structured phases — from electronics fundamentals to full product development. Below is where the journey stands as of <strong>09 June 2026</strong>.
+  </p>
+  <div class="roadmap-grid reveal">
+
+    <div class="phase-card" data-phase="1">
+      <span class="phase-status ps-done">DONE</span>
+      <div class="phase-num">PHASE 01</div>
+      <h4>Electronics for IoT</h4>
+      <span class="phase-dates">20.05.26 → 26.05.26</span>
+    </div>
+
+    <div class="phase-card" data-phase="2">
+      <span class="phase-status ps-done">DONE</span>
+      <div class="phase-num">PHASE 02</div>
+      <h4>Networking &amp; Cloud Basics</h4>
+      <span class="phase-dates">27.05.26 → 02.06.26</span>
+    </div>
+
+    <div class="phase-card" data-phase="3">
+      <span class="phase-status ps-active">ACTIVE</span>
+      <div class="phase-num">PHASE 03</div>
+      <h4>Arduino Programming</h4>
+      <span class="phase-dates">03.06.26 → 16.06.26</span>
+    </div>
+
+    <div class="phase-card" data-phase="4">
+      <span class="phase-status ps-soon">UPCOMING</span>
+      <div class="phase-num">PHASE 04</div>
+      <h4>Project-cum-Product Development</h4>
+      <span class="phase-dates">16.06.26 → 30.06.26</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ TASKS / EXERCISE TRACKER ============ -->
+<section class="tasks-section" id="tasks">
+  <div class="tasks-heading reveal">
+    <span class="journal-num">EXERCISE X</span>
+    <h2 class="journal-title">Project <em>Tasks</em></h2>
+  </div>
+  <p class="tasks-intro reveal">
+    Part of the Arduino programming phase is a <strong>20-project build challenge</strong> — designing and uploading working Arduino / IoT systems with full code and a project report. Here's today's batch of <strong>4 completed builds</strong>, pushed to GitHub on <strong>09 June 2026</strong>.
+  </p>
+
+  <div class="progress-wrap reveal">
+    <div class="progress-label">
+      <span>PROJECTS COMPLETED</span>
+      <span><strong>4</strong> / 20</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" data-target="20"></div>
+    </div>
+  </div>
+
+  <div class="task-grid reveal">
+
+    <!-- TASK 1 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 01 / 20</span>
+      </div>
+      <h4>Smart Energy Monitoring &amp; Management System</h4>
+      <p>An Arduino Uno based system that monitors and manages energy consumption in real time — measuring electrical parameters to help track and optimise power usage. Includes full code and a detailed project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino Uno</span>
+        <span class="task-tag">Energy</span>
+        <span class="task-tag">Monitoring</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/Smart-Energy-Monitoring-and-Management-System-Using-Arduino-Uno" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 02 / 20</span>
+      </div>
+      <h4>Smart Home Security System</h4>
+      <p>A home security build using Arduino — sensing intrusions and triggering alerts to keep a home protected. Repository ships with the firmware code and a complete project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Security</span>
+        <span class="task-tag">Sensors</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-home-security-system-" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 03 / 20</span>
+      </div>
+      <h4>Smart Parking Gate System</h4>
+      <p>An automated parking gate that opens and closes based on vehicle detection — a hands-on take on smart parking automation. Includes the implementation code and project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Servo</span>
+        <span class="task-tag">Automation</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-parking-gate-sysytem" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 04 / 20</span>
+      </div>
+      <h4>Temperature Controlled Fan</h4>
+      <p>A closed-loop cooling system — a <strong>TMP36</strong> sensor reads temperature in real time and automatically switches a DC fan, with a <strong>16×2 LCD</strong> showing live readings. Efficient, autonomous thermal management.</p>
+      <div class="task-tags">
+        <span class="task-tag">TMP36</span>
+        <span class="task-tag">DC Fan</span>
+        <span class="task-tag">LCD 16×2</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/arduino-temperature-controlled-fan" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+  </div>
+</section>
 
 <div class="section-divider"><hr></div>
 
@@ -1482,6 +1843,338 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
+    <!-- ================================ DAY 10 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-10">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 10</span>
+        <div class="day-meta">
+          <div class="day-title">Networking &amp; Cloud Basics — OSI, TCP/IP & IoT Protocols</div>
+          <div class="day-subtitle">Phase 02 — 01/06/2026 to 02/06/2026</div>
+          <div class="day-tags">
+            <span class="day-tag">OSI Model</span>
+            <span class="day-tag">TCP/IP</span>
+            <span class="day-tag">MQTT</span>
+            <span class="day-tag">Cloud</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">The OSI Reference Model</div>
+            <p>Walked through all <strong>7 layers</strong> and how data moves down the stack on the sender side and back up on the receiver side. Each layer adds its own header (encapsulation).</p>
+            <table class="data-table">
+              <thead><tr><th>#</th><th>Layer</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr><td>7</td><td>Application</td><td>User-facing services (HTTP, MQTT)</td></tr>
+                <tr><td>6</td><td>Presentation</td><td>Encryption, encoding, compression</td></tr>
+                <tr><td>5</td><td>Session</td><td>Opens / maintains / closes connections</td></tr>
+                <tr><td>4</td><td>Transport</td><td>End-to-end delivery (TCP, UDP)</td></tr>
+                <tr><td>3</td><td>Network</td><td>Routing &amp; addressing (IP)</td></tr>
+                <tr><td>2</td><td>Data Link</td><td>MAC addressing, framing</td></tr>
+                <tr><td>1</td><td>Physical</td><td>Bits over the wire / radio</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">TCP/IP & Addressing</div>
+            <div class="callout">
+              <div class="callout-label">Key Concepts</div>
+              <div class="callout-text">
+                <strong>IP Address:</strong> Logical address of a device on a network (IPv4 = 32-bit, IPv6 = 128-bit).<br>
+                <strong>MAC Address:</strong> Physical hardware address burned into the NIC.<br>
+                <strong>Ports:</strong> Identify a specific service (HTTP=80, HTTPS=443, MQTT=1883).<br>
+                <strong>DNS:</strong> Resolves human-readable names into IP addresses.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">TCP vs UDP</div>
+            <table class="data-table">
+              <thead><tr><th>Feature</th><th>TCP</th><th>UDP</th></tr></thead>
+              <tbody>
+                <tr><td>Connection</td><td>Connection-oriented</td><td>Connectionless</td></tr>
+                <tr><td>Reliability</td><td>Guaranteed, ordered</td><td>Best-effort</td></tr>
+                <tr><td>Speed</td><td>Slower</td><td>Faster</td></tr>
+                <tr><td>Use</td><td>Web, email, file transfer</td><td>Streaming, gaming, DNS</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">IoT Communication Protocols</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>MQTT</h5>
+                <p>Lightweight publish / subscribe protocol over TCP. Ideal for low-bandwidth IoT devices. Uses a central <strong>broker</strong>.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>HTTP / REST</h5>
+                <p>Request–response over TCP. Simple but heavier than MQTT for constrained devices.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>CoAP</h5>
+                <p>Constrained Application Protocol — REST-like but runs over UDP for tiny devices.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>WebSocket</h5>
+                <p>Full-duplex channel over a single TCP connection — great for live dashboards.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Cloud Basics for IoT</div>
+            <p>Introduced the idea of pushing sensor data to the cloud for storage, visualisation, and remote control. Covered <strong>IoT cloud platforms</strong> (ThingSpeak, Blynk, Firebase) and the three service models:</p>
+            <div class="callout tip">
+              <div class="callout-label">Cloud Service Models</div>
+              <div class="callout-text">
+                <strong>IaaS</strong> — Infrastructure as a Service (raw compute / storage)<br>
+                <strong>PaaS</strong> — Platform as a Service (build &amp; deploy apps)<br>
+                <strong>SaaS</strong> — Software as a Service (ready-to-use apps)
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Map an IoT data flow through all 7 OSI layers</li>
+              <li>Create a free ThingSpeak / Blynk channel</li>
+              <li>Publish a test value to an MQTT broker (e.g. HiveMQ public broker)</li>
+              <li>Compare TCP vs UDP behaviour with a small experiment</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 11 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-11">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 11</span>
+        <div class="day-meta">
+          <div class="day-title">Arduino Programming — Setup, Pins & First Sketches</div>
+          <div class="day-subtitle">Phase 03 — 03/06/2026</div>
+          <div class="day-tags">
+            <span class="day-tag">Arduino IDE</span>
+            <span class="day-tag">Digital I/O</span>
+            <span class="day-tag">Blink</span>
+            <span class="day-tag">Serial</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Meet the Arduino Uno</div>
+            <p>Got hands-on with the <strong>Arduino Uno (ATmega328P)</strong> — 14 digital I/O pins (6 PWM), 6 analog inputs, USB programming, and a 16 MHz clock. Installed the <strong>Arduino IDE</strong> and selected the right board &amp; COM port.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Anatomy of a Sketch</div>
+            <div class="callout formula">
+              <div class="callout-label">Every sketch has two functions</div>
+              <div class="callout-text">
+                void setup() &nbsp;→ runs <strong>once</strong> at power-on (pin modes, Serial.begin)<br>
+                void loop() &nbsp;→ runs <strong>forever</strong>, repeating top to bottom
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Core Digital I/O Functions</div>
+            <table class="data-table">
+              <thead><tr><th>Function</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td>pinMode(pin, MODE)</td><td>Set a pin as INPUT or OUTPUT</td></tr>
+                <tr><td>digitalWrite(pin, HIGH/LOW)</td><td>Turn an output pin on / off</td></tr>
+                <tr><td>digitalRead(pin)</td><td>Read HIGH or LOW from a pin</td></tr>
+                <tr><td>delay(ms)</td><td>Pause for milliseconds</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">First Project — Blink the LED</div>
+            <div class="callout formula">
+              <div class="callout-label">blink.ino</div>
+              <div class="callout-text">
+                void setup() {<br>
+                &nbsp;&nbsp;pinMode(13, OUTPUT);<br>
+                }<br>
+                void loop() {<br>
+                &nbsp;&nbsp;digitalWrite(13, HIGH);<br>
+                &nbsp;&nbsp;delay(1000);<br>
+                &nbsp;&nbsp;digitalWrite(13, LOW);<br>
+                &nbsp;&nbsp;delay(1000);<br>
+                }
+              </div>
+            </div>
+            <p class="scribble">First time an LED blinked from my own code — felt like magic ✨</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Serial Monitor</div>
+            <p>Used <strong>Serial.begin(9600)</strong> and <strong>Serial.println()</strong> to print values back to the computer — the simplest way to debug what a board is "thinking".</p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Upload the Blink sketch and change the timing</li>
+              <li>Wire an external LED with a 220Ω resistor</li>
+              <li>Read a push-button with digitalRead and print it to Serial</li>
+              <li>Make an LED toggle each time the button is pressed</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 12 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-12">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 12</span>
+        <div class="day-meta">
+          <div class="day-title">Sensors, Analog Input & Actuators</div>
+          <div class="day-subtitle">Phase 03 — 04/06/2026 to 06/06/2026</div>
+          <div class="day-tags">
+            <span class="day-tag">analogRead</span>
+            <span class="day-tag">PWM</span>
+            <span class="day-tag">Sensors</span>
+            <span class="day-tag">Servo</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Analog vs Digital on Arduino</div>
+            <div class="callout">
+              <div class="callout-label">Reading the World</div>
+              <div class="callout-text">
+                <strong>analogRead(A0)</strong> → returns 0–1023 (10-bit ADC), mapping 0–5V.<br>
+                <strong>analogWrite(pin, 0–255)</strong> → PWM "fake analog" output for dimming &amp; speed control.<br>
+                Convert reading to voltage: <strong>V = reading × (5.0 / 1023)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Sensors Explored</div>
+            <div class="concept-grid">
+              <div class="concept-card c-leaf">
+                <h5>🌡️ TMP36 / LM35</h5>
+                <p>Analog temperature sensor — voltage output scales with °C.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>📏 HC-SR04</h5>
+                <p>Ultrasonic distance sensor — measures echo time of flight.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>💧 DHT11</h5>
+                <p>Digital temperature + humidity sensor on a single pin.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>🔦 LDR / IR</h5>
+                <p>Light-dependent &amp; infrared sensors for detection circuits.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Actuators</div>
+            <p>Drove outputs back into the physical world: <strong>LEDs</strong>, <strong>buzzers</strong>, <strong>DC motors</strong> (via a transistor / motor driver), and <strong>servo motors</strong> using the <code>Servo.h</code> library and <code>myServo.write(angle)</code>.</p>
+            <div class="callout tip">
+              <div class="callout-label">map() — The Handiest Function</div>
+              <div class="callout-text">map(value, fromLow, fromHigh, toLow, toHigh) — e.g. map(analogRead(A0), 0, 1023, 0, 180) to drive a servo from a potentiometer.</div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Read a TMP36 and print temperature in °C to Serial</li>
+              <li>Dim an LED with a potentiometer using PWM</li>
+              <li>Sweep a servo from 0° to 180° and back</li>
+              <li>Sound a buzzer when an ultrasonic sensor detects an object closer than 10 cm</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 13 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-13">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 13</span>
+        <div class="day-meta">
+          <div class="day-title">Mini-Projects & GitHub Submission Day</div>
+          <div class="day-subtitle">Phase 03 — 09/06/2026 · Exercise X</div>
+          <div class="day-tags">
+            <span class="day-tag">Projects</span>
+            <span class="day-tag">LCD</span>
+            <span class="day-tag">GitHub</span>
+            <span class="day-tag">4 / 20</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Bringing It Together</div>
+            <p>Combined everything from the past week — digital I/O, analog sensors, actuators, and the <strong>16×2 LCD</strong> (using <code>LiquidCrystal.h</code>) — into four complete, working Arduino builds. Each one was documented with a code file and a project report, then pushed to GitHub.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Today's 4 Builds (Exercise X — 4 / 20)</div>
+            <table class="data-table">
+              <thead><tr><th>#</th><th>Project</th><th>Core Idea</th></tr></thead>
+              <tbody>
+                <tr><td>01</td><td>Smart Energy Monitoring System</td><td>Real-time energy measurement &amp; management</td></tr>
+                <tr><td>02</td><td>Smart Home Security System</td><td>Intrusion sensing &amp; alerting</td></tr>
+                <tr><td>03</td><td>Smart Parking Gate System</td><td>Auto gate on vehicle detection</td></tr>
+                <tr><td>04</td><td>Temperature Controlled Fan</td><td>TMP36 → auto DC fan + LCD readout</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:13px;margin-top:10px;">All four are linked in the <a href="#tasks" style="color:var(--ember);text-decoration:underline;"><strong>Project Tasks</strong></a> section above. 16 more to go to finish the 20-project challenge!</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Git & GitHub Workflow</div>
+            <div class="callout formula">
+              <div class="callout-label">The Push Routine</div>
+              <div class="callout-text">
+                git init<br>
+                git add .<br>
+                git commit -m "Add Arduino project"<br>
+                git branch -M main<br>
+                git remote add origin &lt;repo-url&gt;<br>
+                git push -u origin main
+              </div>
+            </div>
+          </div>
+
+          <div class="callout important">
+            <div class="callout-label">Milestone</div>
+            <div class="callout-text">4 of 20 Arduino projects complete and version-controlled on GitHub — the product-development phase (16–30 June) starts next.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div><!-- end .timeline -->
 </section>
 
@@ -1518,6 +2211,23 @@ function toggleDay(header) {
 (function(){
   var first = document.querySelector('.day-card');
   if(first) first.classList.add('open');
+})();
+
+// ============ ANIMATE PROGRESS BAR ============
+(function(){
+  var fill = document.querySelector('.progress-fill');
+  if(!fill) return;
+  fill.style.width = '0%';
+  var po = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        // 4 of 20 = 20%
+        requestAnimationFrame(function(){ fill.style.width = '20%'; });
+        po.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  po.observe(fill);
 })();
 </script>
 
