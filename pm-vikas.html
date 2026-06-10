@@ -958,7 +958,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 13 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 15 Sessions Logged</span>
     <span class="stat-pill"><span class="s-icon">⚙️</span> 12 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
@@ -971,7 +971,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     This page is my <span class="highlight">daily learning journal</span> from the PM Vikas programme at IIIT Kottayam. It covers everything from basic resistor color codes to Boolean algebra, from Kirchhoff's laws to IoT architecture — each day documented with key concepts, formulas, and exercises. Click any day to expand the full notes.
   </p>
   <p>
-    The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), and <strong>Shajulin Sir</strong> (IoT).
+    The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>Embedded Systems</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), <strong>Dr. Della Thomas</strong> (Embedded Systems), and <strong>Shajulin Sir</strong> (IoT).
   </p>
 </div>
 
@@ -1995,9 +1995,181 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     </div>
 
     <!-- ================================ DAY 10 ================================ -->
-    <div class="day-card reveal" data-color="cobalt" id="day-10">
+    <div class="day-card reveal" data-color="rose" id="day-10">
       <div class="day-header" onclick="toggleDay(this)">
         <span class="day-number">Day 10</span>
+        <div class="day-meta">
+          <div class="day-title">Embedded Systems & Microcontrollers</div>
+          <div class="day-subtitle">Dr. Della Thomas — IIIT Kottayam</div>
+          <div class="day-tags">
+            <span class="day-tag">Embedded</span>
+            <span class="day-tag">Microcontroller</span>
+            <span class="day-tag">ATmega328P</span>
+            <span class="day-tag">Architecture</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">What is an Embedded System?</div>
+            <p>An <strong>embedded system</strong> is a dedicated computer built into a larger device to do one specific job — washing machines, microwaves, cars, and of course IoT devices. Unlike a general-purpose PC, it's optimised for a fixed task with tight constraints on power, cost, and size.</p>
+            <div class="callout">
+              <div class="callout-label">Key Traits</div>
+              <div class="callout-text">
+                Real-time response · Low power · Reliable &amp; long-running · Resource-constrained (limited memory &amp; CPU) · Often runs without an operating system (bare-metal).
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Microprocessor vs Microcontroller</div>
+            <table class="data-table">
+              <thead><tr><th>Feature</th><th>Microprocessor</th><th>Microcontroller</th></tr></thead>
+              <tbody>
+                <tr><td>Memory / I/O</td><td>External (separate chips)</td><td>On-chip (all-in-one)</td></tr>
+                <tr><td>Cost</td><td>Higher</td><td>Lower</td></tr>
+                <tr><td>Use</td><td>PCs, heavy computing</td><td>Dedicated control tasks</td></tr>
+                <tr><td>Example</td><td>Intel Core, Pentium</td><td>ATmega328P, PIC, ESP32</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Inside the Microcontroller</div>
+            <p>A microcontroller packs the whole computer onto a single chip:</p>
+            <div class="concept-grid">
+              <div class="concept-card c-rose">
+                <h5>CPU</h5>
+                <p>The brain — fetches, decodes, and executes instructions.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Memory</h5>
+                <p>Flash (program), SRAM (data), EEPROM (non-volatile storage).</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>I/O Ports</h5>
+                <p>Digital &amp; analog pins to talk to sensors and actuators.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Timers / ADC</h5>
+                <p>Timers/counters, ADC for analog reads, and communication units.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">The ATmega328P (Arduino Uno's Brain)</div>
+            <div class="callout tip">
+              <div class="callout-label">Spec Snapshot</div>
+              <div class="callout-text">
+                8-bit AVR · 16 MHz · 32 KB Flash · 2 KB SRAM · 1 KB EEPROM · 14 digital I/O (6 PWM) · 6 analog inputs · UART, SPI, I²C.
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>List 5 everyday devices that contain an embedded system</li>
+              <li>Draw the block diagram of a microcontroller</li>
+              <li>Compare ATmega328P vs ESP32 specs</li>
+              <li>Note which memory type holds your program vs your variables</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 11 ================================ -->
+    <div class="day-card reveal" data-color="rose" id="day-11">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 11</span>
+        <div class="day-meta">
+          <div class="day-title">MCU Architecture, GPIO & Communication Protocols</div>
+          <div class="day-subtitle">Dr. Della Thomas — Continued</div>
+          <div class="day-tags">
+            <span class="day-tag">GPIO</span>
+            <span class="day-tag">Memory</span>
+            <span class="day-tag">UART / SPI / I²C</span>
+            <span class="day-tag">Interrupts</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Memory Architecture</div>
+            <div class="callout">
+              <div class="callout-label">Von Neumann vs Harvard</div>
+              <div class="callout-text">
+                <strong>Von Neumann:</strong> Program &amp; data share one memory + one bus.<br>
+                <strong>Harvard:</strong> Separate memory &amp; buses for program and data — faster, used by AVR (ATmega328P).
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">GPIO — General Purpose Input/Output</div>
+            <p>Each pin can be configured as <strong>input</strong> (read a sensor/button) or <strong>output</strong> (drive an LED/relay). Covered <strong>pull-up / pull-down resistors</strong> to keep floating inputs at a defined logic level, and the idea of <strong>registers</strong> (DDR, PORT, PIN) behind Arduino's friendly functions.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Serial Communication Protocols</div>
+            <table class="data-table">
+              <thead><tr><th>Protocol</th><th>Wires</th><th>Best For</th></tr></thead>
+              <tbody>
+                <tr><td><strong>UART</strong></td><td>TX, RX</td><td>Simple device-to-device serial (Serial Monitor)</td></tr>
+                <tr><td><strong>SPI</strong></td><td>MOSI, MISO, SCK, SS</td><td>Fast — SD cards, displays</td></tr>
+                <tr><td><strong>I²C</strong></td><td>SDA, SCL</td><td>Many sensors on 2 wires (addresses)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Interrupts, Timers & ADC</div>
+            <div class="concept-grid">
+              <div class="concept-card c-rose">
+                <h5>Interrupts</h5>
+                <p>Pause the main loop instantly to handle an urgent event (button press, sensor trigger) — then resume.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Timers / PWM</h5>
+                <p>Generate precise delays, count events, and produce PWM for dimming &amp; motor speed.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>ADC</h5>
+                <p>Analog-to-Digital Converter turns a 0–5V signal into a 0–1023 number the CPU can use.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout important">
+            <div class="callout-label">Bridge to Arduino</div>
+            <div class="callout-text">Everything Dr. Della Thomas covered — GPIO, ADC, timers, serial — is exactly what the Arduino IDE wraps in simple functions. Next sessions move from theory into hands-on Arduino code.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Explain the difference between UART, SPI, and I²C</li>
+              <li>Why does a button need a pull-up or pull-down resistor?</li>
+              <li>Give one real example where an interrupt is better than polling</li>
+              <li>Calculate the voltage for an ADC reading of 512</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 12 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-12">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 12</span>
         <div class="day-meta">
           <div class="day-title">Networking &amp; Cloud Basics — OSI, TCP/IP & IoT Protocols</div>
           <div class="day-subtitle">Phase 02 — 01/06/2026 to 02/06/2026</div>
@@ -2104,10 +2276,10 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 11 ================================ -->
-    <div class="day-card reveal" data-color="leaf" id="day-11">
+    <!-- ================================ DAY 13 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-13">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 11</span>
+        <span class="day-number">Day 13</span>
         <div class="day-meta">
           <div class="day-title">Arduino Programming — Setup, Pins & First Sketches</div>
           <div class="day-subtitle">Phase 03 — 03/06/2026</div>
@@ -2189,10 +2361,10 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 12 ================================ -->
-    <div class="day-card reveal" data-color="leaf" id="day-12">
+    <!-- ================================ DAY 14 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-14">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 12</span>
+        <span class="day-number">Day 14</span>
         <div class="day-meta">
           <div class="day-title">Sensors, Analog Input & Actuators</div>
           <div class="day-subtitle">Phase 03 — 04/06/2026 to 06/06/2026</div>
@@ -2264,13 +2436,13 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 13 ================================ -->
-    <div class="day-card reveal" data-color="ember" id="day-13">
+    <!-- ================================ DAY 15 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-15">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 13</span>
+        <span class="day-number">Day 15</span>
         <div class="day-meta">
           <div class="day-title">Mini-Projects & GitHub Submission Day</div>
-          <div class="day-subtitle">Phase 03 — 09/06/2026 · Exercise X</div>
+          <div class="day-subtitle">Phase 03 — 09–10/06/2026 · Exercise X</div>
           <div class="day-tags">
             <span class="day-tag">Projects</span>
             <span class="day-tag">LCD</span>
