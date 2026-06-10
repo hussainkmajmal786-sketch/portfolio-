@@ -764,7 +764,7 @@ h1 em { color: var(--leaf); font-style: italic; }
 }
 .progress-fill{
   height:100%;
-  width:20%;
+  width:30%;
   background:repeating-linear-gradient(
     45deg,
     var(--ember) 0px,
@@ -939,7 +939,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
   <div class="stats-row reveal">
     <span class="stat-pill"><span class="s-icon">📅</span> 13 Sessions Logged</span>
-    <span class="stat-pill"><span class="s-icon">⚙️</span> 4 / 20 Projects Done</span>
+    <span class="stat-pill"><span class="s-icon">⚙️</span> 6 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
   </div>
@@ -1008,13 +1008,13 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     <h2 class="journal-title">Project <em>Tasks</em></h2>
   </div>
   <p class="tasks-intro reveal">
-    Part of the Arduino programming phase is a <strong>20-project build challenge</strong> — designing and uploading working Arduino / IoT systems with full code and a project report. Here's today's batch of <strong>4 completed builds</strong>, pushed to GitHub on <strong>09 June 2026</strong>.
+    Part of the Arduino programming phase is a <strong>20-project build challenge</strong> — designing and uploading working Arduino / IoT systems with full code and a project report. So far <strong>6 builds are complete</strong> and pushed to GitHub as of <strong>09 June 2026</strong>.
   </p>
 
   <div class="progress-wrap reveal">
     <div class="progress-label">
       <span>PROJECTS COMPLETED</span>
-      <span><strong>4</strong> / 20</span>
+      <span><strong>6</strong> / 20</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" data-target="20"></div>
@@ -1085,6 +1085,38 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
         <span class="task-tag">LCD 16×2</span>
       </div>
       <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/arduino-temperature-controlled-fan" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 05 / 20</span>
+      </div>
+      <h4>Smart Agriculture Monitoring System</h4>
+      <p>An IoT-driven farming aid that continuously monitors field conditions — sensing parameters like soil moisture, temperature, and humidity to help farmers make smarter irrigation and crop decisions. Includes full code and a project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Agriculture</span>
+        <span class="task-tag">Soil Sensor</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/SMART-AGRICULTURE-MONITERING-SYSYTEM-" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 06 / 20</span>
+      </div>
+      <h4>Smart Water Monitoring &amp; Pump Control</h4>
+      <p>An automated water-level monitoring system with responsive pump control — detecting tank levels in real time and switching the pump on/off without manual intervention, helping conserve water and prevent overflow. Ships with code and a project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Water Level</span>
+        <span class="task-tag">Pump Control</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-water-monitering-" target="_blank" rel="noopener">View Repo →</a>
     </div>
 
   </div>
@@ -2124,7 +2156,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
             <span class="day-tag">Projects</span>
             <span class="day-tag">LCD</span>
             <span class="day-tag">GitHub</span>
-            <span class="day-tag">4 / 20</span>
+            <span class="day-tag">6 / 20</span>
           </div>
         </div>
         <span class="day-toggle">+</span>
@@ -2134,11 +2166,11 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
           <div class="topic-block">
             <div class="topic-label">Bringing It Together</div>
-            <p>Combined everything from the past week — digital I/O, analog sensors, actuators, and the <strong>16×2 LCD</strong> (using <code>LiquidCrystal.h</code>) — into four complete, working Arduino builds. Each one was documented with a code file and a project report, then pushed to GitHub.</p>
+            <p>Combined everything from the past week — digital I/O, analog sensors, actuators, and the <strong>16×2 LCD</strong> (using <code>LiquidCrystal.h</code>) — into six complete, working Arduino builds. Each one was documented with a code file and a project report, then pushed to GitHub.</p>
           </div>
 
           <div class="topic-block">
-            <div class="topic-label">Today's 4 Builds (Exercise X — 4 / 20)</div>
+            <div class="topic-label">Builds So Far (Exercise X — 6 / 20)</div>
             <table class="data-table">
               <thead><tr><th>#</th><th>Project</th><th>Core Idea</th></tr></thead>
               <tbody>
@@ -2146,9 +2178,11 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
                 <tr><td>02</td><td>Smart Home Security System</td><td>Intrusion sensing &amp; alerting</td></tr>
                 <tr><td>03</td><td>Smart Parking Gate System</td><td>Auto gate on vehicle detection</td></tr>
                 <tr><td>04</td><td>Temperature Controlled Fan</td><td>TMP36 → auto DC fan + LCD readout</td></tr>
+                <tr><td>05</td><td>Smart Agriculture Monitoring System</td><td>Soil &amp; climate sensing for smart farming</td></tr>
+                <tr><td>06</td><td>Smart Water Monitoring System</td><td>Water-level detection + auto pump control</td></tr>
               </tbody>
             </table>
-            <p style="font-size:13px;margin-top:10px;">All four are linked in the <a href="#tasks" style="color:var(--ember);text-decoration:underline;"><strong>Project Tasks</strong></a> section above. 16 more to go to finish the 20-project challenge!</p>
+            <p style="font-size:13px;margin-top:10px;">All six are linked in the <a href="#tasks" style="color:var(--ember);text-decoration:underline;"><strong>Project Tasks</strong></a> section above. 14 more to go to finish the 20-project challenge!</p>
           </div>
 
           <div class="topic-block">
@@ -2168,7 +2202,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
           <div class="callout important">
             <div class="callout-label">Milestone</div>
-            <div class="callout-text">4 of 20 Arduino projects complete and version-controlled on GitHub — the product-development phase (16–30 June) starts next.</div>
+            <div class="callout-text">6 of 20 Arduino projects complete and version-controlled on GitHub — the product-development phase (16–30 June) starts next.</div>
           </div>
 
         </div>
@@ -2221,8 +2255,8 @@ function toggleDay(header) {
   var po = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
-        // 4 of 20 = 20%
-        requestAnimationFrame(function(){ fill.style.width = '20%'; });
+        // 6 of 20 = 30%
+        requestAnimationFrame(function(){ fill.style.width = '30%'; });
         po.unobserve(e.target);
       }
     });
