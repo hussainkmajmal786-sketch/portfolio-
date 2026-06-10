@@ -958,7 +958,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 15 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 18 Sessions Logged</span>
     <span class="stat-pill"><span class="s-icon">⚙️</span> 12 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
@@ -971,7 +971,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     This page is my <span class="highlight">daily learning journal</span> from the PM Vikas programme at IIIT Kottayam. It covers everything from basic resistor color codes to Boolean algebra, from Kirchhoff's laws to IoT architecture — each day documented with key concepts, formulas, and exercises. Click any day to expand the full notes.
   </p>
   <p>
-    The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>Embedded Systems</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), <strong>Dr. Della Thomas</strong> (Embedded Systems), and <strong>Shajulin Sir</strong> (IoT).
+    The core curriculum covers <strong>Network Theory</strong>, <strong>Engineering Electronics</strong>, <strong>Analog & Digital Circuits</strong>, <strong>Embedded Systems</strong>, <strong>Networking & Cloud</strong>, <strong>IoT Fundamentals</strong>, and <strong>Computer Networks</strong> — guided by faculty including <strong>Dr. Anand</strong> (HOD ECE), <strong>Dr. Vineeth</strong> (Wireless Communication), <strong>Dr. Della Thomas</strong> (Embedded Systems), <strong>Dr. S. Venkatesh</strong> (Networking & Cloud), and <strong>Shajulin Sir</strong> (IoT).
   </p>
 </div>
 
@@ -2171,13 +2171,13 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       <div class="day-header" onclick="toggleDay(this)">
         <span class="day-number">Day 12</span>
         <div class="day-meta">
-          <div class="day-title">Networking &amp; Cloud Basics — OSI, TCP/IP & IoT Protocols</div>
-          <div class="day-subtitle">Phase 02 — 01/06/2026 to 02/06/2026</div>
+          <div class="day-title">Networking &amp; Cloud Basics — Part 1 · OSI &amp; TCP/IP</div>
+          <div class="day-subtitle">Dr. S. Venkatesh — Phase 02 · Day 1</div>
           <div class="day-tags">
             <span class="day-tag">OSI Model</span>
             <span class="day-tag">TCP/IP</span>
-            <span class="day-tag">MQTT</span>
-            <span class="day-tag">Cloud</span>
+            <span class="day-tag">Addressing</span>
+            <span class="day-tag">TCP vs UDP</span>
           </div>
         </div>
         <span class="day-toggle">+</span>
@@ -2229,6 +2229,43 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
           </div>
 
           <div class="topic-block">
+            <div class="topic-label">Network Devices &amp; Topologies</div>
+            <p>Covered the building blocks of a network — <strong>hub, switch, router, modem, access point</strong> — and common <strong>topologies</strong> (star, bus, ring, mesh). Discussed LAN vs WAN vs MAN and where each device sits in the OSI stack.</p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Map an IoT data flow through all 7 OSI layers</li>
+              <li>Find your device's IP and MAC address</li>
+              <li>List which OSI layer a switch vs a router operates at</li>
+              <li>Compare TCP vs UDP behaviour with a small experiment</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 13 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-13">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 13</span>
+        <div class="day-meta">
+          <div class="day-title">Networking &amp; Cloud Basics — Part 2 · IoT Protocols &amp; Cloud</div>
+          <div class="day-subtitle">Dr. S. Venkatesh — Phase 02 · Day 2</div>
+          <div class="day-tags">
+            <span class="day-tag">MQTT</span>
+            <span class="day-tag">HTTP / CoAP</span>
+            <span class="day-tag">Cloud Models</span>
+            <span class="day-tag">IoT Platforms</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
             <div class="topic-label">IoT Communication Protocols</div>
             <div class="concept-grid">
               <div class="concept-card c-cobalt">
@@ -2251,8 +2288,18 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
           </div>
 
           <div class="topic-block">
+            <div class="topic-label">MQTT in Depth</div>
+            <div class="callout">
+              <div class="callout-label">Publish / Subscribe Model</div>
+              <div class="callout-text">
+                Devices <strong>publish</strong> messages to a <strong>topic</strong> (e.g. <code>home/temp</code>); others <strong>subscribe</strong> to that topic to receive them. A central <strong>broker</strong> routes everything. Three <strong>QoS</strong> levels (0, 1, 2) trade speed for delivery guarantees.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
             <div class="topic-label">Cloud Basics for IoT</div>
-            <p>Introduced the idea of pushing sensor data to the cloud for storage, visualisation, and remote control. Covered <strong>IoT cloud platforms</strong> (ThingSpeak, Blynk, Firebase) and the three service models:</p>
+            <p>Pushing sensor data to the cloud for storage, visualisation, and remote control. Covered <strong>IoT cloud platforms</strong> (ThingSpeak, Blynk, Firebase) and the three service models:</p>
             <div class="callout tip">
               <div class="callout-label">Cloud Service Models</div>
               <div class="callout-text">
@@ -2263,12 +2310,17 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
             </div>
           </div>
 
+          <div class="topic-block">
+            <div class="topic-label">Deployment Models</div>
+            <p><strong>Public</strong> (AWS, Azure, GCP) · <strong>Private</strong> (in-house) · <strong>Hybrid</strong> (mix of both). Discussed latency, edge vs cloud processing, and why IoT often does both.</p>
+          </div>
+
           <div class="exercise-box">
             <ol>
-              <li>Map an IoT data flow through all 7 OSI layers</li>
               <li>Create a free ThingSpeak / Blynk channel</li>
               <li>Publish a test value to an MQTT broker (e.g. HiveMQ public broker)</li>
-              <li>Compare TCP vs UDP behaviour with a small experiment</li>
+              <li>Subscribe to a topic and watch live messages arrive</li>
+              <li>Compare IaaS, PaaS, and SaaS with one real example each</li>
             </ol>
           </div>
 
@@ -2276,10 +2328,163 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 13 ================================ -->
-    <div class="day-card reveal" data-color="leaf" id="day-13">
+    <!-- ================================ DAY 14 ================================ -->
+    <div class="day-card reveal" data-color="butter" id="day-14">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 13</span>
+        <span class="day-number">Day 14</span>
+        <div class="day-meta">
+          <div class="day-title">Cisco Packet Tracer — Network Simulation Lab</div>
+          <div class="day-subtitle">Hands-on Networking Lab — Phase 02</div>
+          <div class="day-tags">
+            <span class="day-tag">Packet Tracer</span>
+            <span class="day-tag">Routers</span>
+            <span class="day-tag">Switches</span>
+            <span class="day-tag">Subnetting</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">What is Cisco Packet Tracer?</div>
+            <p>A free network <strong>simulation tool</strong> from Cisco — drag-and-drop routers, switches, PCs, and servers onto a canvas, wire them up, and watch packets travel in real time. Perfect for practising networking without physical hardware.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Hands-On Builds</div>
+            <div class="concept-grid">
+              <div class="concept-card c-butter">
+                <h5>Simple LAN</h5>
+                <p>Connected 2+ PCs through a switch, assigned IPs, and verified connectivity with <code>ping</code>.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Router Setup</h5>
+                <p>Linked two networks through a router, configured interfaces &amp; default gateways.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Subnetting</h5>
+                <p>Split a network into subnets, applied subnet masks, and tested cross-subnet routing.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Simulation Mode</h5>
+                <p>Stepped through packet flow layer-by-layer to see ARP, ICMP, and DNS in action.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Key Commands &amp; Tools</div>
+            <div class="callout formula">
+              <div class="callout-label">Tested in Lab</div>
+              <div class="callout-text">
+                ping &lt;ip&gt; &nbsp;→ check reachability<br>
+                ipconfig &nbsp;→ view IP / gateway<br>
+                tracert &lt;ip&gt; &nbsp;→ trace the route hop-by-hop
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Build a LAN with 3 PCs and a switch; ping between them</li>
+              <li>Add a router to connect two separate networks</li>
+              <li>Subnet 192.168.1.0/24 into four subnets</li>
+              <li>Use Simulation Mode to watch an ARP request resolve</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 15 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-15">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 15</span>
+        <div class="day-meta">
+          <div class="day-title">Introduction to AWS &amp; Docker</div>
+          <div class="day-subtitle">Cloud &amp; Containers — Phase 02</div>
+          <div class="day-tags">
+            <span class="day-tag">AWS</span>
+            <span class="day-tag">EC2 / S3</span>
+            <span class="day-tag">Docker</span>
+            <span class="day-tag">Containers</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Amazon Web Services (AWS)</div>
+            <p>The world's largest cloud platform — rent compute, storage, and databases on demand instead of buying servers. Explored the core services most useful for IoT:</p>
+            <table class="data-table">
+              <thead><tr><th>Service</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>EC2</strong></td><td>Virtual servers in the cloud</td></tr>
+                <tr><td><strong>S3</strong></td><td>Object storage for files &amp; data</td></tr>
+                <tr><td><strong>IoT Core</strong></td><td>Connect &amp; manage IoT devices via MQTT</td></tr>
+                <tr><td><strong>Lambda</strong></td><td>Run code without managing servers</td></tr>
+                <tr><td><strong>DynamoDB</strong></td><td>Fast NoSQL database for device data</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Why the Cloud for IoT?</div>
+            <div class="callout tip">
+              <div class="callout-label">Benefits</div>
+              <div class="callout-text">
+                Scalability (handle millions of devices) · Pay-as-you-go pricing · Global reach · Built-in security · Remote access to data from anywhere.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Docker — Containers Explained</div>
+            <p>Docker packages an app <strong>with all its dependencies</strong> into a lightweight, portable <strong>container</strong> that runs the same anywhere — "it works on my machine" solved.</p>
+            <div class="callout">
+              <div class="callout-label">Containers vs Virtual Machines</div>
+              <div class="callout-text">
+                <strong>VM:</strong> Full guest OS per app — heavy, slow to start.<br>
+                <strong>Container:</strong> Shares the host OS kernel — lightweight, starts in seconds, runs many per machine.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Core Docker Concepts</div>
+            <div class="callout formula">
+              <div class="callout-label">The Workflow</div>
+              <div class="callout-text">
+                Dockerfile &nbsp;→ recipe to build an image<br>
+                Image &nbsp;→ a frozen, shippable snapshot<br>
+                Container &nbsp;→ a running instance of an image<br><br>
+                docker build · docker run · docker ps · docker pull
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Create a free AWS account and launch a test EC2 instance</li>
+              <li>Upload a file to an S3 bucket</li>
+              <li>Install Docker and run <code>docker run hello-world</code></li>
+              <li>Write a simple Dockerfile and build an image from it</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 16 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-16">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 16</span>
         <div class="day-meta">
           <div class="day-title">Arduino Programming — Setup, Pins & First Sketches</div>
           <div class="day-subtitle">Phase 03 — 03/06/2026</div>
@@ -2361,10 +2566,10 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 14 ================================ -->
-    <div class="day-card reveal" data-color="leaf" id="day-14">
+    <!-- ================================ DAY 17 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-17">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 14</span>
+        <span class="day-number">Day 17</span>
         <div class="day-meta">
           <div class="day-title">Sensors, Analog Input & Actuators</div>
           <div class="day-subtitle">Phase 03 — 04/06/2026 to 06/06/2026</div>
@@ -2436,10 +2641,10 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       </div>
     </div>
 
-    <!-- ================================ DAY 15 ================================ -->
-    <div class="day-card reveal" data-color="ember" id="day-15">
+    <!-- ================================ DAY 18 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-18">
       <div class="day-header" onclick="toggleDay(this)">
-        <span class="day-number">Day 15</span>
+        <span class="day-number">Day 18</span>
         <div class="day-meta">
           <div class="day-title">Mini-Projects & GitHub Submission Day</div>
           <div class="day-subtitle">Phase 03 — 09–10/06/2026 · Exercise X</div>
