@@ -958,7 +958,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 21 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 25 Sessions Logged</span>
     <span class="stat-pill"><span class="s-icon">🏁</span> 20 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
@@ -3020,6 +3020,239 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
               <li>Identify the sensors, actuators, and connectivity needed</li>
               <li>Note the social impact and who benefits</li>
               <li>Outline how it could scale across a community</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 22 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-22">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 22</span>
+        <div class="day-meta">
+          <div class="day-title">Analyzing the Projects</div>
+          <div class="day-subtitle">Phase 03 · Review &amp; Reflection</div>
+          <div class="day-tags">
+            <span class="day-tag">Analysis</span>
+            <span class="day-tag">Debugging</span>
+            <span class="day-tag">Review</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Looking Back at the 20 Builds</div>
+            <p>A reflective day spent dissecting the completed projects — what worked, what was fragile, and how each could be made more reliable. Analysis is where good engineers level up.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">What to Analyze</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>Logic</h5>
+                <p>Does the code handle edge cases? Any blocking <code>delay()</code> that should be non-blocking?</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>Hardware</h5>
+                <p>Correct pull-ups, debouncing, power budget, and protection for inductive loads.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Reliability</h5>
+                <p>Noise filtering, calibration drift, and behaviour when a sensor disconnects.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Scalability</h5>
+                <p>Could it talk to the cloud? Run on battery? Handle more sensors?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Pick 3 projects and list one improvement for each</li>
+              <li>Replace a <code>delay()</code> with <code>millis()</code> timing</li>
+              <li>Add input validation to one sketch</li>
+              <li>Note which builds could benefit from cloud connectivity</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 23 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-23">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 23</span>
+        <div class="day-meta">
+          <div class="day-title">4 Sensors &amp; 4 Actuators</div>
+          <div class="day-subtitle">Phase 03 · Hands-on Practical</div>
+          <div class="day-tags">
+            <span class="day-tag">Sensors ×4</span>
+            <span class="day-tag">Actuators ×4</span>
+            <span class="day-tag">Wiring</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Four Sensors</div>
+            <table class="data-table">
+              <thead><tr><th>Sensor</th><th>Reads</th><th>Output</th></tr></thead>
+              <tbody>
+                <tr><td>DHT11</td><td>Temperature &amp; humidity</td><td>Digital</td></tr>
+                <tr><td>HC-SR04</td><td>Distance (ultrasonic)</td><td>Echo timing</td></tr>
+                <tr><td>LDR</td><td>Light intensity</td><td>Analog</td></tr>
+                <tr><td>IR sensor</td><td>Object / obstacle</td><td>Digital</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Four Actuators</div>
+            <table class="data-table">
+              <thead><tr><th>Actuator</th><th>Does</th><th>Driven by</th></tr></thead>
+              <tbody>
+                <tr><td>LED</td><td>Light / status</td><td>digitalWrite / PWM</td></tr>
+                <tr><td>Buzzer</td><td>Sound alert</td><td>tone() / digitalWrite</td></tr>
+                <tr><td>Servo motor</td><td>Precise angle</td><td>Servo.write(angle)</td></tr>
+                <tr><td>DC motor</td><td>Rotation</td><td>Transistor / driver + PWM</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">Sense → Decide → Act</div>
+            <div class="callout-text">The core IoT loop in one line: a <strong>sensor</strong> reads the world, the Arduino <strong>decides</strong> in code, and an <strong>actuator</strong> changes something physical. Every one of the 20 builds is a variation on this.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Wire each of the 4 sensors and print readings to Serial</li>
+              <li>Drive each of the 4 actuators independently</li>
+              <li>Combine one sensor + one actuator (e.g. IR → servo)</li>
+              <li>Build a mini "smart" reaction using all eight together</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 24 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-24">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 24</span>
+        <div class="day-meta">
+          <div class="day-title">Introduction to Wokwi &amp; Simple Projects</div>
+          <div class="day-subtitle">Phase 03 · Simulation</div>
+          <div class="day-tags">
+            <span class="day-tag">Wokwi</span>
+            <span class="day-tag">Simulation</span>
+            <span class="day-tag">No Hardware</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">What is Wokwi?</div>
+            <p><strong>Wokwi</strong> is an online <strong>Arduino / ESP32 simulator</strong> — wire up virtual components in the browser, write code, and run it instantly with no physical board needed. Perfect for prototyping and testing logic before touching real hardware.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Why Simulate First</div>
+            <div class="callout tip">
+              <div class="callout-label">Benefits</div>
+              <div class="callout-text">
+                No risk of frying components · Instant wiring changes · Share projects via a link · Test code anywhere · Great for learning before buying parts.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Simple Projects Built</div>
+            <ul>
+              <li>Blink &amp; fade an LED with PWM</li>
+              <li>Read a potentiometer and print to the virtual Serial Monitor</li>
+              <li>Button-controlled LED with debouncing</li>
+              <li>LCD "Hello, World" with a simulated 16×2 display</li>
+            </ul>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Create a free Wokwi project and run the Blink sketch</li>
+              <li>Simulate a DHT11 reading on an LCD</li>
+              <li>Recreate one of your 20 builds in Wokwi</li>
+              <li>Share the project link to show it off</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 25 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-25">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 25</span>
+        <div class="day-meta">
+          <div class="day-title">AWS, ThingSpeak &amp; Quiz</div>
+          <div class="day-subtitle">Phase 03 · Cloud + Assessment</div>
+          <div class="day-tags">
+            <span class="day-tag">AWS</span>
+            <span class="day-tag">ThingSpeak</span>
+            <span class="day-tag">IoT Cloud</span>
+            <span class="day-tag">Quiz</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Connecting Devices to the Cloud</div>
+            <p>Brought the loop full circle — pushing real sensor data up to the cloud so it can be stored, charted, and accessed from anywhere. Revisited <strong>AWS</strong> and got hands-on with <strong>ThingSpeak</strong>.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">ThingSpeak — IoT Made Simple</div>
+            <div class="callout">
+              <div class="callout-label">How it Works</div>
+              <div class="callout-text">
+                Create a <strong>channel</strong> with fields for each sensor → an ESP/Arduino sends values via an <strong>HTTP / MQTT write API key</strong> → ThingSpeak <strong>logs &amp; graphs</strong> the data live, with built-in analytics and alerts.
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">AWS Recap</div>
+            <p>Refreshed the core IoT-relevant services — <strong>EC2</strong> (servers), <strong>S3</strong> (storage), <strong>IoT Core</strong> (device connectivity via MQTT), and <strong>Lambda</strong> (serverless logic) — and where ThingSpeak fits as a quick, beginner-friendly alternative.</p>
+          </div>
+
+          <div class="callout important">
+            <div class="callout-label">📝 Quiz</div>
+            <div class="callout-text">Wrapped up the phase with an assessment covering electronics, embedded systems, networking, Arduino, and cloud — a checkpoint on everything learned across the 25 sessions.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Create a ThingSpeak channel and note its write API key</li>
+              <li>Push a sensor value to ThingSpeak and view the live graph</li>
+              <li>Compare ThingSpeak vs AWS IoT Core for a small project</li>
+              <li>Review quiz answers and revisit any weak topics</li>
             </ol>
           </div>
 
