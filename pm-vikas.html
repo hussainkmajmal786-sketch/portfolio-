@@ -958,7 +958,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 18 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 21 Sessions Logged</span>
     <span class="stat-pill"><span class="s-icon">🏁</span> 20 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
@@ -2841,6 +2841,186 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
           <div class="callout important">
             <div class="callout-label">🏁 Challenge Complete</div>
             <div class="callout-text">All 20 of 20 Arduino / IoT projects built, documented, and version-controlled on GitHub — the full Exercise X challenge is done. On to the product-development phase (16–30 June)!</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 19 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-19">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 19</span>
+        <div class="day-meta">
+          <div class="day-title">Sensors &amp; Actuators — In Depth</div>
+          <div class="day-subtitle">Phase 03 · Practical Lab</div>
+          <div class="day-tags">
+            <span class="day-tag">Sensors</span>
+            <span class="day-tag">Actuators</span>
+            <span class="day-tag">Interfacing</span>
+            <span class="day-tag">Calibration</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Going Deeper on Sensors</div>
+            <p>Moved past basic readings into how sensors really behave — <strong>analog vs digital</strong> output, signal conditioning, and why <strong>calibration</strong> matters. A raw value is only as good as the mapping behind it.</p>
+            <table class="data-table">
+              <thead><tr><th>Sensor</th><th>Type</th><th>Reads</th></tr></thead>
+              <tbody>
+                <tr><td>TMP36 / LM35</td><td>Analog</td><td>Temperature (°C)</td></tr>
+                <tr><td>DHT11</td><td>Digital</td><td>Temp + humidity</td></tr>
+                <tr><td>HC-SR04</td><td>Digital (timing)</td><td>Distance via echo</td></tr>
+                <tr><td>LDR</td><td>Analog</td><td>Ambient light</td></tr>
+                <tr><td>MQ-series</td><td>Analog</td><td>Gas concentration</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Calibration &amp; Interfacing</div>
+            <div class="callout tip">
+              <div class="callout-label">Why Calibrate?</div>
+              <div class="callout-text">Sensors drift and vary unit-to-unit. Take a known reference, record the raw value, and use <code>map()</code> or a linear fit to convert raw → real units. Add <strong>averaging</strong> to smooth out noise.</div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Driving Actuators Reliably</div>
+            <p>Covered safe ways to drive bigger loads: <strong>transistors / MOSFETs</strong> for motors, <strong>relays</strong> for mains devices, <strong>flyback diodes</strong> to protect against inductive spikes, and <strong>PWM</strong> for smooth speed / brightness control.</p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Calibrate an LDR against a known lux reference</li>
+              <li>Average 10 analog reads to reduce sensor noise</li>
+              <li>Drive a DC motor through a transistor with a flyback diode</li>
+              <li>Switch a relay safely from a digital pin</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 20 ================================ -->
+    <div class="day-card reveal" data-color="butter" id="day-20">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 20</span>
+        <div class="day-meta">
+          <div class="day-title">Self-Study &amp; Revision</div>
+          <div class="day-subtitle">Phase 03 · Independent Learning</div>
+          <div class="day-tags">
+            <span class="day-tag">Self Study</span>
+            <span class="day-tag">Revision</span>
+            <span class="day-tag">Documentation</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Consolidating the Phase</div>
+            <p>A dedicated day to revise everything from the programme — circuits and digital logic, embedded systems, networking &amp; cloud, and the full Arduino toolkit — and to tidy up <strong>documentation</strong> across all 20 GitHub projects.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Revision Checklist</div>
+            <div class="concept-grid">
+              <div class="concept-card c-butter">
+                <h5>Electronics</h5>
+                <p>Ohm's law, KCL/KVL, rectifiers, Boolean algebra &amp; K-maps.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>Embedded</h5>
+                <p>MCU architecture, GPIO, ADC, timers, UART / SPI / I²C.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Networking &amp; Cloud</h5>
+                <p>OSI, TCP/IP, MQTT, AWS basics, Docker, Packet Tracer.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>Arduino</h5>
+                <p>Sketch structure, sensors, actuators, LCD, the 20 builds.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">Documentation Tip</div>
+            <div class="callout-text">A good README turns a project into a portfolio piece — what it does, the wiring, the components, and how to run it. Future-you (and recruiters) will thank present-you.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Re-derive a half-adder and a full-adder from scratch</li>
+              <li>Write or polish READMEs for the remaining repos</li>
+              <li>Make a one-page cheat sheet of Arduino functions</li>
+              <li>List 3 weak spots and revise them deliberately</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 21 ================================ -->
+    <div class="day-card reveal" data-color="rose" id="day-21">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 21</span>
+        <div class="day-meta">
+          <div class="day-title">Case Study — Societal Problems &amp; IoT Solutions</div>
+          <div class="day-subtitle">Phase 03 · Applied Project</div>
+          <div class="day-tags">
+            <span class="day-tag">Case Study</span>
+            <span class="day-tag">IoT for Good</span>
+            <span class="day-tag">Social Impact</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">IoT for Real-World Problems</div>
+            <p>The capstone of the phase — pick a genuine <strong>societal problem</strong> and design an IoT solution end to end. The goal isn't just a working circuit, but tech that actually improves lives.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Problem → Solution Mapping</div>
+            <table class="data-table">
+              <thead><tr><th>Problem</th><th>IoT Solution</th></tr></thead>
+              <tbody>
+                <tr><td>Water scarcity</td><td>Smart tank + pump control to cut waste</td></tr>
+                <tr><td>Road accidents</td><td>Smart traffic &amp; adaptive street lighting</td></tr>
+                <tr><td>Industrial hazards</td><td>Gas / flame / safety alert monitoring</td></tr>
+                <tr><td>Elderly care</td><td>Wearable health + emergency SOS alerts</td></tr>
+                <tr><td>Energy waste</td><td>Smart energy &amp; dusk-to-dawn lighting</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="idea-card">
+            <h4>Connecting the Dots</h4>
+            <p>
+              Almost every one of the 20 builds maps back to a real societal need — the case study tied them together into the bigger picture of <strong>IoT for good</strong>: affordable, connected systems solving everyday problems in homes, cities, and industry.
+            </p>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Pick one local problem and sketch an IoT solution</li>
+              <li>Identify the sensors, actuators, and connectivity needed</li>
+              <li>Note the social impact and who benefits</li>
+              <li>Outline how it could scale across a community</li>
+            </ol>
           </div>
 
         </div>
