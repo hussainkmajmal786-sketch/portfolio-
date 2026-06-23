@@ -764,7 +764,7 @@ h1 em { color: var(--leaf); font-style: italic; }
 }
 .progress-fill{
   height:100%;
-  width:60%;
+  width:100%;
   background:repeating-linear-gradient(
     45deg,
     var(--ember) 0px,
@@ -772,7 +772,7 @@ h1 em { color: var(--leaf); font-style: italic; }
     #ff7a45 10px,
     #ff7a45 20px
   );
-  border-radius:999px 0 0 999px;
+  border-radius:999px;
   transition:width 1s cubic-bezier(.4,.2,.2,1);
 }
 .task-grid{
@@ -959,7 +959,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
   <div class="stats-row reveal">
     <span class="stat-pill"><span class="s-icon">📅</span> 18 Sessions Logged</span>
-    <span class="stat-pill"><span class="s-icon">⚙️</span> 12 / 20 Projects Done</span>
+    <span class="stat-pill"><span class="s-icon">🏁</span> 20 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
   </div>
@@ -984,7 +984,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     <h2 class="journal-title">Programme <em>Roadmap</em></h2>
   </div>
   <p class="tasks-intro reveal" style="margin-bottom:24px;">
-    The internship runs across four structured phases — from electronics fundamentals to full product development. Below is where the journey stands as of <strong>09 June 2026</strong>.
+    The internship runs across four structured phases — from electronics fundamentals to full product development. Below is where the journey stands as of <strong>15 June 2026</strong> — with the 20-project Arduino challenge complete.
   </p>
   <div class="roadmap-grid reveal">
 
@@ -1003,7 +1003,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     </div>
 
     <div class="phase-card" data-phase="3">
-      <span class="phase-status ps-active">ACTIVE</span>
+      <span class="phase-status ps-done">DONE</span>
       <div class="phase-num">PHASE 03</div>
       <h4>Arduino Programming</h4>
       <span class="phase-dates">03.06.26 → 16.06.26</span>
@@ -1028,13 +1028,13 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     <h2 class="journal-title">Project <em>Tasks</em></h2>
   </div>
   <p class="tasks-intro reveal">
-    Part of the Arduino programming phase is a <strong>20-project build challenge</strong> — designing and uploading working Arduino / IoT systems with full code and a project report. So far <strong>12 builds are complete</strong> — past the halfway mark — pushed to GitHub as of <strong>10 June 2026</strong>.
+    Part of the Arduino programming phase is a <strong>20-project build challenge</strong> — designing and uploading working Arduino / IoT systems with full code and a project report. <strong>Challenge complete</strong> — all <strong>20 builds</strong> are done and pushed to GitHub. 🎉
   </p>
 
   <div class="progress-wrap reveal">
     <div class="progress-label">
       <span>PROJECTS COMPLETED</span>
-      <span><strong>12</strong> / 20</span>
+      <span><strong>20</strong> / 20 ✅</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" data-target="20"></div>
@@ -1236,6 +1236,134 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
         <span class="task-tag">C++</span>
       </div>
       <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-city" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 13 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 13 / 20</span>
+      </div>
+      <h4>Smart Home Security System (v2)</h4>
+      <p>A second, refined take on home security — sensor-driven intrusion detection that watches the entrance and raises an alert on unexpected motion. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Security</span>
+        <span class="task-tag">Motion Sensor</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-home-security" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 14 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 14 / 20</span>
+      </div>
+      <h4>Smart Automatic Hand Sanitizer Dispenser</h4>
+      <p>A touch-free sanitizer dispenser — an IR sensor detects a hand underneath and triggers the pump automatically, keeping things hygienic with zero contact. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">IR Sensor</span>
+        <span class="task-tag">Touchless</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-sanitizer" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 15 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 15 / 20</span>
+      </div>
+      <h4>Smart Dustbin</h4>
+      <p>A hands-free smart bin — an ultrasonic sensor detects an approaching hand and opens the lid automatically, making waste disposal touchless and tidy. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Ultrasonic</span>
+        <span class="task-tag">Servo</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/dust-bin-smart" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 16 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 16 / 20</span>
+      </div>
+      <h4>Automatic Street Light System</h4>
+      <p>An energy-saving street light that switches itself on at dusk and off at dawn — an LDR senses ambient light so the lamp only runs when it's actually dark. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">LDR</span>
+        <span class="task-tag">Automation</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/street-light" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 17 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 17 / 20</span>
+      </div>
+      <h4>Smart Water Tank Level Monitoring</h4>
+      <p>A tank-level monitor that tracks water in real time and warns before it runs dry or overflows — using an ultrasonic / float sensor to keep an eye on the level. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Water Level</span>
+        <span class="task-tag">Monitoring</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/water-lvel" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 18 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 18 / 20</span>
+      </div>
+      <h4>Smart Gas Leakage Detection System</h4>
+      <p>A safety system that sniffs out dangerous gas leaks — an MQ-series gas sensor monitors concentration and fires an alert the moment levels cross a safe threshold. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Gas Sensor</span>
+        <span class="task-tag">Alert</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/gas-leakage" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 19 -->
+    <div class="task-card">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 19 / 20</span>
+      </div>
+      <h4>Smart Fire Alarm System</h4>
+      <p>A flame-detection alarm — a flame sensor spots fire early and triggers an instant alert, giving precious extra seconds to react. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">Flame Sensor</span>
+        <span class="task-tag">Safety</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/flame-sensing" target="_blank" rel="noopener">View Repo →</a>
+    </div>
+
+    <!-- TASK 20 -->
+    <div class="task-card task-card-featured">
+      <div class="task-top">
+        <span class="task-check">✓</span>
+        <span class="task-num">PROJECT 20 / 20 · 🏁 FINAL</span>
+      </div>
+      <h4>Smart Parking System</h4>
+      <p>The final build — an automated parking manager that detects free vs occupied bays in real time and guides drivers to open spots, optimising how a lot fills up. Written in C++ with a full project report.</p>
+      <div class="task-tags">
+        <span class="task-tag">Arduino</span>
+        <span class="task-tag">IR Sensors</span>
+        <span class="task-tag">Smart City</span>
+      </div>
+      <a class="task-link" href="https://github.com/hussainkmajmal786-sketch/smart-parking-2" target="_blank" rel="noopener">View Repo →</a>
     </div>
 
   </div>
@@ -2646,13 +2774,13 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       <div class="day-header" onclick="toggleDay(this)">
         <span class="day-number">Day 18</span>
         <div class="day-meta">
-          <div class="day-title">Mini-Projects & GitHub Submission Day</div>
-          <div class="day-subtitle">Phase 03 — 09–10/06/2026 · Exercise X</div>
+          <div class="day-title">Mini-Projects & GitHub Submission — Challenge Complete 🏁</div>
+          <div class="day-subtitle">Phase 03 — 09–14/06/2026 · Exercise X</div>
           <div class="day-tags">
             <span class="day-tag">Projects</span>
             <span class="day-tag">LCD</span>
             <span class="day-tag">GitHub</span>
-            <span class="day-tag">12 / 20</span>
+            <span class="day-tag">20 / 20 ✅</span>
           </div>
         </div>
         <span class="day-toggle">+</span>
@@ -2661,12 +2789,12 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
         <div class="day-content">
 
           <div class="topic-block">
-            <div class="topic-label">Bringing It Together</div>
-            <p>Combined everything from the past week — digital I/O, analog sensors, actuators, and the <strong>16×2 LCD</strong> (using <code>LiquidCrystal.h</code>) — into twelve complete, working Arduino builds, including an <strong>AI-powered automation platform</strong>, a <strong>health monitoring + emergency alert system</strong>, and a full <strong>smart-city monitoring platform</strong>. Each one was documented with a code file and a project report, then pushed to GitHub.</p>
+            <div class="topic-label">Bringing It All Together</div>
+            <p>Combined everything from the phase — digital I/O, analog sensors, actuators, and the <strong>16×2 LCD</strong> (using <code>LiquidCrystal.h</code>) — into <strong>all 20</strong> complete, working Arduino builds, headlined by an <strong>AI-powered automation platform</strong>, a <strong>health + emergency alert system</strong>, and a full <strong>smart-city monitoring platform</strong>. Every build was documented with a code file and a project report, then pushed to GitHub.</p>
           </div>
 
           <div class="topic-block">
-            <div class="topic-label">Builds So Far (Exercise X — 12 / 20)</div>
+            <div class="topic-label">All 20 Builds (Exercise X — 20 / 20 ✅)</div>
             <table class="data-table">
               <thead><tr><th>#</th><th>Project</th><th>Core Idea</th></tr></thead>
               <tbody>
@@ -2682,9 +2810,17 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
                 <tr><td>10</td><td>⭐ AI-Powered Smart Automation Platform</td><td>AI + Arduino for intelligent real-time automation</td></tr>
                 <tr><td>11</td><td>Smart Health Monitoring System</td><td>Vital-sign tracking + emergency SOS alerts</td></tr>
                 <tr><td>12</td><td>IoT Smart City Monitoring System</td><td>City-wide sensor data collection &amp; management</td></tr>
+                <tr><td>13</td><td>Smart Home Security System (v2)</td><td>Refined sensor-driven intrusion detection</td></tr>
+                <tr><td>14</td><td>Smart Hand Sanitizer Dispenser</td><td>Touchless IR-triggered sanitizer pump</td></tr>
+                <tr><td>15</td><td>Smart Dustbin</td><td>Ultrasonic auto-opening lid, hands-free</td></tr>
+                <tr><td>16</td><td>Automatic Street Light System</td><td>LDR-based dusk-to-dawn lighting</td></tr>
+                <tr><td>17</td><td>Smart Water Tank Level Monitor</td><td>Real-time tank level + low/overflow alerts</td></tr>
+                <tr><td>18</td><td>Smart Gas Leakage Detection</td><td>Gas sensor + threshold safety alert</td></tr>
+                <tr><td>19</td><td>Smart Fire Alarm System</td><td>Flame detection + instant alarm</td></tr>
+                <tr><td>20</td><td>🏁 Smart Parking System</td><td>Real-time bay occupancy — final build!</td></tr>
               </tbody>
             </table>
-            <p style="font-size:13px;margin-top:10px;">All twelve are linked in the <a href="#tasks" style="color:var(--ember);text-decoration:underline;"><strong>Project Tasks</strong></a> section above. Past halfway — 8 more to go to finish the 20-project challenge!</p>
+            <p style="font-size:13px;margin-top:10px;">Every build is linked in the <a href="#tasks" style="color:var(--ember);text-decoration:underline;"><strong>Project Tasks</strong></a> section above. <strong>20 / 20 done</strong> — the full challenge is complete! 🎉</p>
           </div>
 
           <div class="topic-block">
@@ -2703,8 +2839,8 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
           </div>
 
           <div class="callout important">
-            <div class="callout-label">Milestone</div>
-            <div class="callout-text">12 of 20 Arduino projects complete and version-controlled on GitHub — past the halfway mark, including AI automation, health monitoring, and smart-city builds. The product-development phase (16–30 June) starts next.</div>
+            <div class="callout-label">🏁 Challenge Complete</div>
+            <div class="callout-text">All 20 of 20 Arduino / IoT projects built, documented, and version-controlled on GitHub — the full Exercise X challenge is done. On to the product-development phase (16–30 June)!</div>
           </div>
 
         </div>
@@ -2757,8 +2893,8 @@ function toggleDay(header) {
   var po = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
-        // 12 of 20 = 60%
-        requestAnimationFrame(function(){ fill.style.width = '60%'; });
+        // 20 of 20 = 100% — challenge complete
+        requestAnimationFrame(function(){ fill.style.width = '100%'; });
         po.unobserve(e.target);
       }
     });
