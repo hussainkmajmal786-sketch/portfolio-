@@ -958,7 +958,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div>
 
   <div class="stats-row reveal">
-    <span class="stat-pill"><span class="s-icon">📅</span> 25 Sessions Logged</span>
+    <span class="stat-pill"><span class="s-icon">📅</span> 30 Sessions Logged</span>
     <span class="stat-pill"><span class="s-icon">🏁</span> 20 / 20 Projects Done</span>
     <span class="stat-pill"><span class="s-icon">🤖</span> Arduino & IoT</span>
     <span class="stat-pill"><span class="s-icon">🌐</span> Networking & Cloud</span>
@@ -984,7 +984,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     <h2 class="journal-title">Programme <em>Roadmap</em></h2>
   </div>
   <p class="tasks-intro reveal" style="margin-bottom:24px;">
-    The internship runs across four structured phases — from electronics fundamentals to full product development. Below is where the journey stands as of <strong>15 June 2026</strong> — with the 20-project Arduino challenge complete.
+    The internship ran across four structured phases — from electronics fundamentals to full product development. All four are now <strong>complete</strong>: 30 sessions logged, the 20-project Arduino challenge shipped, and a team-built IoT product delivered.
   </p>
   <div class="roadmap-grid reveal">
 
@@ -1010,7 +1010,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
     </div>
 
     <div class="phase-card" data-phase="4">
-      <span class="phase-status ps-soon">UPCOMING</span>
+      <span class="phase-status ps-done">DONE</span>
       <div class="phase-num">PHASE 04</div>
       <h4>Project-cum-Product Development</h4>
       <span class="phase-dates">16.06.26 → 30.06.26</span>
@@ -3253,6 +3253,307 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
               <li>Push a sensor value to ThingSpeak and view the live graph</li>
               <li>Compare ThingSpeak vs AWS IoT Core for a small project</li>
               <li>Review quiz answers and revisit any weak topics</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 26 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-26">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 26</span>
+        <div class="day-meta">
+          <div class="day-title">ESP32 — Study</div>
+          <div class="day-subtitle">Phase 04 · New Hardware</div>
+          <div class="day-tags">
+            <span class="day-tag">ESP32</span>
+            <span class="day-tag">Wi-Fi</span>
+            <span class="day-tag">Bluetooth</span>
+            <span class="day-tag">Dual-core</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">What is the ESP32?</div>
+            <p>The <strong>ESP32</strong> is a low-cost, low-power <strong>microcontroller with built-in Wi-Fi and Bluetooth</strong> — think of it as an Arduino that can talk to the internet on its own. That makes it the go-to chip for real IoT projects that need to send data to the cloud without extra modules.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">ESP32 vs Arduino Uno</div>
+            <table class="data-table">
+              <thead><tr><th>Feature</th><th>Arduino Uno</th><th>ESP32</th></tr></thead>
+              <tbody>
+                <tr><td>Core</td><td>8-bit, 16 MHz</td><td>32-bit dual-core, up to 240 MHz</td></tr>
+                <tr><td>Wi-Fi / BT</td><td>None (needs module)</td><td>Built-in</td></tr>
+                <tr><td>Flash / RAM</td><td>32 KB / 2 KB</td><td>~4 MB / 520 KB</td></tr>
+                <tr><td>ADC pins</td><td>6</td><td>18</td></tr>
+                <tr><td>Best for</td><td>Learning, simple control</td><td>Connected IoT projects</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">Why It Matters</div>
+            <div class="callout-text">With Wi-Fi on-chip, the ESP32 can push sensor data straight to <strong>ThingSpeak / AWS</strong> or host its own web server — the natural next step after Arduino.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Note 3 projects that would benefit from ESP32's Wi-Fi</li>
+              <li>Compare ESP32 pinout with the Arduino Uno</li>
+              <li>Read what dual-core buys you for IoT tasks</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 27 ================================ -->
+    <div class="day-card reveal" data-color="ember" id="day-27">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 27</span>
+        <div class="day-meta">
+          <div class="day-title">ESP32 — Simulation &amp; Working With It</div>
+          <div class="day-subtitle">Phase 04 · Hands-on</div>
+          <div class="day-tags">
+            <span class="day-tag">ESP32</span>
+            <span class="day-tag">Wokwi</span>
+            <span class="day-tag">Wi-Fi</span>
+            <span class="day-tag">Web Server</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Simulating the ESP32</div>
+            <p>Used <strong>Wokwi</strong> to run ESP32 code without physical hardware — including its simulated Wi-Fi, so we could test cloud-connected sketches right in the browser.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Working With It</div>
+            <ul>
+              <li>Connect to Wi-Fi with the <code>WiFi.h</code> library</li>
+              <li>Blink &amp; read sensors just like Arduino (same IDE)</li>
+              <li>Host a tiny <strong>web server</strong> to control an LED from a browser</li>
+              <li>Send a sensor reading to <strong>ThingSpeak</strong> over Wi-Fi</li>
+            </ul>
+          </div>
+
+          <div class="callout formula">
+            <div class="callout-label">Connect to Wi-Fi</div>
+            <div class="callout-text">
+              #include &lt;WiFi.h&gt;<br>
+              WiFi.begin("SSID", "PASSWORD");<br>
+              while (WiFi.status() != WL_CONNECTED) { delay(500); }<br>
+              Serial.println(WiFi.localIP());
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Simulate an ESP32 connecting to Wi-Fi in Wokwi</li>
+              <li>Toggle an LED from a browser web page</li>
+              <li>Push a DHT11 reading to ThingSpeak</li>
+              <li>Print the device IP to the Serial Monitor</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 28 ================================ -->
+    <div class="day-card reveal" data-color="rose" id="day-28">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 28</span>
+        <div class="day-meta">
+          <div class="day-title">Raspberry Pi — Explained</div>
+          <div class="day-subtitle">Phase 04 · Single-Board Computer</div>
+          <div class="day-tags">
+            <span class="day-tag">Raspberry Pi</span>
+            <span class="day-tag">Linux</span>
+            <span class="day-tag">GPIO</span>
+            <span class="day-tag">Edge Computing</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">What is a Raspberry Pi?</div>
+            <p>The <strong>Raspberry Pi</strong> is a credit-card-sized <strong>single-board computer</strong> that runs a full <strong>Linux OS</strong>. Unlike a microcontroller, it's a real computer — you can run Python, host servers, process camera feeds, and still control hardware through its GPIO pins.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Microcontroller vs Single-Board Computer</div>
+            <table class="data-table">
+              <thead><tr><th>Aspect</th><th>Arduino / ESP32</th><th>Raspberry Pi</th></tr></thead>
+              <tbody>
+                <tr><td>Runs an OS?</td><td>No (bare-metal)</td><td>Yes (Linux)</td></tr>
+                <tr><td>Best at</td><td>Real-time control</td><td>Heavy processing, networking</td></tr>
+                <tr><td>Language</td><td>C / C++</td><td>Python, anything</td></tr>
+                <tr><td>Power use</td><td>Very low</td><td>Higher</td></tr>
+                <tr><td>Use in IoT</td><td>Sensor node</td><td>Edge gateway / hub</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">How They Work Together</div>
+            <div class="callout-text">A common IoT setup: <strong>ESP32 sensor nodes</strong> send data to a <strong>Raspberry Pi gateway</strong>, which processes it locally (edge computing) and forwards summaries to the cloud.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>List when you'd choose a Pi over an ESP32</li>
+              <li>Note what "edge computing" means for IoT</li>
+              <li>Sketch a Pi + ESP32 gateway architecture</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 29 ================================ -->
+    <div class="day-card reveal" data-color="cobalt" id="day-29">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 29</span>
+        <div class="day-meta">
+          <div class="day-title">Mini-Project Discussion &amp; Architecture Planning</div>
+          <div class="day-subtitle">Phase 04 · Team Design</div>
+          <div class="day-tags">
+            <span class="day-tag">Team</span>
+            <span class="day-tag">Architecture</span>
+            <span class="day-tag">Planning</span>
+            <span class="day-tag">Design</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">Discussing &amp; Choosing the Project</div>
+            <p>As a <strong>team</strong>, we brainstormed mini-project ideas, weighed feasibility, and locked in a direction — then moved into designing the full <strong>architecture</strong> and working out the details before writing any code.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Planning the Architecture</div>
+            <div class="concept-grid">
+              <div class="concept-card c-cobalt">
+                <h5>Sensing Layer</h5>
+                <p>Which sensors, where they sit, and what they measure.</p>
+              </div>
+              <div class="concept-card c-leaf">
+                <h5>Processing</h5>
+                <p>Arduino / ESP32 / Pi — who does what and where logic lives.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>Connectivity</h5>
+                <p>Wi-Fi, MQTT / HTTP, and how data reaches the cloud.</p>
+              </div>
+              <div class="concept-card c-rose">
+                <h5>Output / UI</h5>
+                <p>Dashboard, alerts, or actuators the user actually sees.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-label">Team Roles</div>
+            <div class="callout-text">Split the work — hardware &amp; wiring, firmware, cloud / dashboard, and documentation — so everyone owns a piece and the build moves in parallel.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Write a one-line problem statement for the project</li>
+              <li>Draw the block diagram (sense → process → connect → act)</li>
+              <li>List every component and its role</li>
+              <li>Assign team responsibilities and a timeline</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================ DAY 30 ================================ -->
+    <div class="day-card reveal" data-color="leaf" id="day-30">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-number">Day 30</span>
+        <div class="day-meta">
+          <div class="day-title">Full Build &amp; Testing — Build–Measure–Learn</div>
+          <div class="day-subtitle">Phase 04 · Product Development</div>
+          <div class="day-tags">
+            <span class="day-tag">Build</span>
+            <span class="day-tag">Measure</span>
+            <span class="day-tag">Learn</span>
+            <span class="day-tag">Testing</span>
+          </div>
+        </div>
+        <span class="day-toggle">+</span>
+      </div>
+      <div class="day-body">
+        <div class="day-content">
+
+          <div class="topic-block">
+            <div class="topic-label">From Plan to Product</div>
+            <p>The final day — we <strong>fully built</strong> the mini-project from the architecture, wired it up, flashed the firmware, and put it through testing, following the <strong>Build → Measure → Learn</strong> loop.</p>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">The Build–Measure–Learn Loop</div>
+            <div class="concept-grid">
+              <div class="concept-card c-leaf">
+                <h5>🔨 Build</h5>
+                <p>Assemble the hardware and firmware into a working prototype.</p>
+              </div>
+              <div class="concept-card c-cobalt">
+                <h5>📊 Measure</h5>
+                <p>Test it with real inputs — collect data on what actually happens.</p>
+              </div>
+              <div class="concept-card c-ember">
+                <h5>💡 Learn</h5>
+                <p>Compare results to the goal, find gaps, and feed fixes back into the next build.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-label">Testing Checklist</div>
+            <ul>
+              <li>Does every sensor read correctly under real conditions?</li>
+              <li>Do actuators respond the way the logic intends?</li>
+              <li>Does data reach the cloud / dashboard reliably?</li>
+              <li>How does it behave on edge cases and power loss?</li>
+            </ul>
+          </div>
+
+          <div class="callout important">
+            <div class="callout-label">🎓 Programme Complete</div>
+            <div class="callout-text">30 sessions, 20 shipped Arduino builds, and a full team-built IoT product — from resistor colour codes on Day 1 to a working Build–Measure–Learn prototype on Day 30.</div>
+          </div>
+
+          <div class="exercise-box">
+            <ol>
+              <li>Run a full end-to-end test of the built system</li>
+              <li>Record what worked and what failed (measure)</li>
+              <li>List improvements for the next iteration (learn)</li>
+              <li>Document the final build with photos &amp; a README</li>
             </ol>
           </div>
 
