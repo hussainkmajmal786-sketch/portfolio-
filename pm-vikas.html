@@ -238,54 +238,42 @@ h1 em { color: var(--leaf); font-style: italic; }
 }
 .journal-title em{font-style:italic; color:var(--cobalt);}
 
-/* ============ TIMELINE ============ */
+/* ============ TIMELINE (2-column grid) ============ */
+/* Fills DOWN the left column (Days 1–15) then the right column (Days 16–30) */
 .timeline{
   position:relative;
-  padding-left:48px;
-}
-.timeline::before{
-  content:'';
-  position:absolute;
-  left:18px;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:repeating-linear-gradient(
-    to bottom,
-    var(--ink) 0px,
-    var(--ink) 8px,
-    transparent 8px,
-    transparent 16px
-  );
-  opacity:.3;
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-template-rows:repeat(15, min-content);
+  grid-auto-flow:column;
+  gap:24px 24px;
+  align-items:start;
 }
 
 /* ============ DAY CARD ============ */
 .day-card{
   position:relative;
-  margin-bottom:32px;
   border:2px solid var(--ink);
   border-radius:18px;
   background:var(--paper);
   overflow:hidden;
   transition:transform .3s, box-shadow .3s;
+  align-self:start;
 }
 .day-card:hover{
   transform:translateY(-3px);
   box-shadow:6px 6px 0 var(--ink);
 }
 
-/* timeline dot */
+/* accent strip on the left edge (replaces the timeline dot) */
 .day-card::before{
   content:'';
   position:absolute;
-  left:-38px;
-  top:28px;
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  border:3px solid var(--ink);
-  background:var(--paper);
+  left:0;
+  top:0;
+  bottom:0;
+  width:6px;
+  background:var(--ink);
   z-index:2;
 }
 .day-card[data-color="ember"]::before{background:var(--ember);}
@@ -293,18 +281,6 @@ h1 em { color: var(--leaf); font-style: italic; }
 .day-card[data-color="leaf"]::before{background:var(--leaf);}
 .day-card[data-color="butter"]::before{background:var(--butter);}
 .day-card[data-color="rose"]::before{background:var(--rose);}
-
-/* connector line from dot to card */
-.day-card::after{
-  content:'';
-  position:absolute;
-  left:-24px;
-  top:33px;
-  width:24px;
-  height:3px;
-  background:var(--ink);
-  opacity:.3;
-}
 
 /* ============ DAY HEADER (clickable) ============ */
 .day-header{
@@ -910,11 +886,14 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 .reveal.in{opacity:1; transform:translateY(0);}
 
 /* ============ RESPONSIVE ============ */
+@media (max-width:820px){
+  .timeline{
+    grid-template-columns:1fr;
+    grid-template-rows:none;
+    grid-auto-flow:row;
+  }
+}
 @media (max-width:680px){
-  .timeline{padding-left:32px;}
-  .timeline::before{left:10px;}
-  .day-card::before{left:-28px; width:12px; height:12px; top:24px;}
-  .day-card::after{left:-16px; width:16px; top:28px;}
   .day-header{padding:16px 18px; gap:10px;}
   .day-number{font-size:1.2rem; min-width:50px;}
   .day-content{padding:0 18px 22px;}
