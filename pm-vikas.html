@@ -691,6 +691,122 @@ h1 em { color: var(--leaf); font-style: italic; }
 .phase-card .ps-active{background:var(--ember); color:var(--paper);}
 .phase-card .ps-soon{background:var(--paper-deep); color:var(--ink-soft);}
 
+/* ============ FEATURED PROJECT SHOWCASE ============ */
+.project-showcase{
+  margin-top:36px;
+  border:3px solid var(--ink);
+  border-radius:22px;
+  overflow:hidden;
+  background:var(--paper);
+  box-shadow:8px 8px 0 var(--cobalt);
+}
+.showcase-banner{
+  background:var(--ink);
+  color:var(--paper);
+  padding:26px 28px;
+  position:relative;
+}
+.showcase-banner .sb-kicker{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--butter);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+}
+.showcase-banner h3{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:clamp(1.5rem, 3.5vw, 2.2rem);
+  line-height:1.1;
+  letter-spacing:-.02em;
+}
+.showcase-banner h3 em{font-style:italic; color:var(--ember);}
+.showcase-banner .sb-tags{
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;
+}
+.showcase-banner .sb-tag{
+  font-size:10px;
+  padding:4px 11px;
+  border:1.5px solid var(--paper);
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  opacity:.85;
+}
+.showcase-body{padding:28px;}
+.showcase-body > .sc-label{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ember);
+  margin:26px 0 12px;
+  display:flex; align-items:center; gap:8px;
+}
+.showcase-body > .sc-label:first-child{margin-top:0;}
+.showcase-body > .sc-label::before{content:''; width:16px; height:2px; background:currentColor;}
+.showcase-body p{font-size:14.5px; line-height:1.75; max-width:760px; margin-bottom:12px;}
+
+/* architecture flow diagram */
+.arch-flow{
+  display:flex;
+  align-items:stretch;
+  flex-wrap:wrap;
+  gap:0;
+  margin:6px 0 8px;
+}
+.arch-node{
+  flex:1 1 150px;
+  min-width:150px;
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:16px 14px;
+  background:var(--paper);
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+.arch-node .an-icon{font-size:26px; display:block; margin-bottom:8px;}
+.arch-node h5{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:.98rem;
+  margin-bottom:4px;
+}
+.arch-node p{font-size:11.5px; line-height:1.5; color:var(--ink-soft); margin:0;}
+.arch-node.an-source{border-top:5px solid var(--cobalt);}
+.arch-node.an-link{border-top:5px solid var(--butter);}
+.arch-node.an-brain{border-top:5px solid var(--ember);}
+.arch-node.an-out{border-top:5px solid var(--leaf);}
+.arch-arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  color:var(--ember);
+  padding:0 6px;
+  flex:0 0 auto;
+}
+@media (max-width:640px){
+  .arch-flow{flex-direction:column;}
+  .arch-arrow{transform:rotate(90deg); padding:8px 0;}
+}
+
+/* innovation / use-case grids reuse .concept-grid + .concept-card */
+.showcase-body .sc-highlight{
+  background:var(--butter);
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:18px 20px;
+  margin:14px 0;
+  font-size:14px;
+  line-height:1.7;
+}
+
 /* ============ TASKS / EXERCISE TRACKER ============ */
 .tasks-section{
   padding:30px 6vw 50px;
@@ -1075,6 +1191,93 @@ body.modal-open{overflow:hidden;}
       <span class="phase-dates">16.06.26 → 30.06.26</span>
     </div>
 
+  </div>
+
+  <!-- ============ FEATURED PROJECT SHOWCASE ============ -->
+  <div class="project-showcase reveal">
+    <div class="showcase-banner">
+      <div class="sb-kicker"><span>⭐ Phase 04 Capstone · Team Build</span></div>
+      <h3>Wireless <em>Screen Casting</em> System for Classrooms</h3>
+      <p style="margin:10px 0 0; font-size:14.5px; opacity:.9; max-width:640px;">
+        A Raspberry Pi powered receiver that lets a lecturer cast their screen — <strong>video and audio</strong> — from any device straight to the projector, completely <strong>wirelessly</strong>. No cables, no being tied to the podium.
+      </p>
+      <div class="sb-tags">
+        <span class="sb-tag">Raspberry Pi</span>
+        <span class="sb-tag">Wireless</span>
+        <span class="sb-tag">Screen + Audio Cast</span>
+        <span class="sb-tag">EdTech</span>
+        <span class="sb-tag">HDMI</span>
+      </div>
+    </div>
+
+    <div class="showcase-body">
+
+      <div class="sc-label">The Idea</div>
+      <p>
+        In most classrooms a projector is chained to one HDMI cable at the front desk. Our project turns that projector into a <strong>wireless casting screen</strong>: plug a <strong>Raspberry Pi</strong> into the projector's HDMI, and it becomes a receiver that any phone, tablet, or laptop on the same network can cast to — mirroring both the display and the sound.
+      </p>
+
+      <div class="sc-label">Architecture</div>
+      <p>Data flows from the presenter's device, over Wi-Fi, to the Pi acting as the casting receiver, and out to the projector &amp; speakers:</p>
+      <div class="arch-flow">
+        <div class="arch-node an-source">
+          <span class="an-icon">📱</span>
+          <h5>Source Device</h5>
+          <p>Phone · tablet · laptop the lecturer is presenting from</p>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node an-link">
+          <span class="an-icon">📶</span>
+          <h5>Wireless Link</h5>
+          <p>Wi-Fi network — screen + audio streamed over the local network</p>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node an-brain">
+          <span class="an-icon">🍓</span>
+          <h5>Raspberry Pi</h5>
+          <p>Casting receiver — decodes the stream in real time</p>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node an-out">
+          <span class="an-icon">📽️</span>
+          <h5>Projector + Audio</h5>
+          <p>HDMI out to the projector; sound to the room speakers</p>
+        </div>
+      </div>
+
+      <div class="sc-label">The Innovation</div>
+      <div class="concept-grid">
+        <div class="concept-card c-cobalt">
+          <h5>🔌 Cable-Free Podium</h5>
+          <p>No HDMI or dongle hunting. The lecturer connects once and moves freely around the room while presenting.</p>
+        </div>
+        <div class="concept-card c-ember">
+          <h5>🔊 Screen + Audio Together</h5>
+          <p>Unlike a plain mirror, it carries <strong>audio too</strong> — play a video with sound, no separate speaker setup.</p>
+        </div>
+        <div class="concept-card c-leaf">
+          <h5>📱 Device-Agnostic</h5>
+          <p>Works from Android, iOS, Windows, or Linux — cast from whatever the presenter already has in hand.</p>
+        </div>
+        <div class="concept-card c-rose">
+          <h5>💸 Low-Cost Retrofit</h5>
+          <p>Turns any existing projector "smart" for the price of a Raspberry Pi — no new hardware for the institution.</p>
+        </div>
+      </div>
+
+      <div class="sc-highlight">
+        <strong>Why it's useful for lectures:</strong> Professors can teach from a tablet while walking among students, switch presenters instantly without swapping cables, and share videos with full audio — making sessions more interactive and far less tied to the front of the room.
+      </div>
+
+      <div class="sc-label">Built Wisely — What Makes It Work</div>
+      <ul style="font-size:14px; line-height:1.8; padding-left:20px; max-width:760px;">
+        <li><strong>Real-time streaming</strong> tuned for low latency so slides &amp; video stay in sync with speech.</li>
+        <li><strong>Audio routing</strong> handled alongside video, not as an afterthought.</li>
+        <li><strong>Simple pairing</strong> — join the network and cast; no technical setup mid-lecture.</li>
+        <li><strong>Scalable</strong> — one Pi per projector; the same design drops into any classroom or hall.</li>
+      </ul>
+
+    </div>
   </div>
 </section>
 
