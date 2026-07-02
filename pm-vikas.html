@@ -881,6 +881,86 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   50%{transform:scale(1.25);}
 }
 
+/* ============ DAY MODAL ============ */
+.day-modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.day-modal.open{display:flex;}
+.day-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(27,23,20,.55);
+  backdrop-filter:blur(3px);
+  animation:modalFade .25s ease;
+}
+@keyframes modalFade{from{opacity:0;} to{opacity:1;}}
+.day-modal-dialog{
+  position:relative;
+  z-index:1;
+  width:min(720px, 100%);
+  max-height:88vh;
+  overflow-y:auto;
+  background:var(--paper);
+  border:3px solid var(--ink);
+  border-radius:20px;
+  box-shadow:10px 10px 0 var(--ember);
+  padding:32px 30px 30px;
+  animation:modalPop .3s cubic-bezier(.2,.8,.3,1.1);
+}
+@keyframes modalPop{from{opacity:0; transform:translateY(24px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);}}
+.day-modal-close{
+  position:absolute;
+  top:16px; right:18px;
+  width:40px; height:40px;
+  border:2px solid var(--ink);
+  border-radius:50%;
+  background:var(--paper);
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  transition:all .2s;
+}
+.day-modal-close:hover{background:var(--ink); color:var(--paper); transform:rotate(90deg);}
+.day-modal-head{
+  border-bottom:2px dashed rgba(27,23,20,.2);
+  padding-bottom:18px;
+  margin-bottom:6px;
+  padding-right:40px;
+}
+.day-modal-num{
+  font-family:'Fraunces', serif;
+  font-weight:900;
+  font-size:1.4rem;
+  color:var(--ember);
+  display:block;
+  margin-bottom:4px;
+}
+.day-modal-title{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.5rem;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.day-modal-sub{
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+/* the cloned .day-content keeps its own styling; just strip its border */
+.day-modal-content .day-content{
+  padding:0;
+  border-top:none;
+}
+body.modal-open{overflow:hidden;}
+
 /* ============ REVEAL ============ */
 .reveal{opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
@@ -3543,6 +3623,20 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   </div><!-- end .timeline -->
 </section>
 
+<!-- ============ DAY MODAL ============ -->
+<div class="day-modal" id="dayModal" aria-hidden="true">
+  <div class="day-modal-backdrop" data-close></div>
+  <div class="day-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dayModalTitle">
+    <button class="day-modal-close" type="button" aria-label="Close" data-close>&times;</button>
+    <div class="day-modal-head">
+      <span class="day-modal-num" id="dayModalNum"></span>
+      <h3 class="day-modal-title" id="dayModalTitle"></h3>
+      <div class="day-modal-sub" id="dayModalSub"></div>
+    </div>
+    <div class="day-modal-content" id="dayModalContent"></div>
+  </div>
+</div>
+
 <!-- ============ FOOTER ============ -->
 <footer id="contact-footer">
   <span>&copy; 2026 — Ajmal Hussain K M</span>
@@ -3552,11 +3646,44 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
 <!-- ============ SCRIPTS ============ -->
 <script>
-// ============ TOGGLE DAY CARDS ============
+// ============ DAY MODAL (popup) ============
+var dayModal = document.getElementById('dayModal');
+
 function toggleDay(header) {
   var card = header.closest('.day-card');
-  card.classList.toggle('open');
+  var num   = card.querySelector('.day-number');
+  var title = card.querySelector('.day-title');
+  var sub   = card.querySelector('.day-subtitle');
+  var body  = card.querySelector('.day-content');
+
+  document.getElementById('dayModalNum').textContent   = num ? num.textContent : '';
+  document.getElementById('dayModalTitle').textContent = title ? title.textContent : '';
+  document.getElementById('dayModalSub').textContent   = sub ? sub.textContent : '';
+
+  var target = document.getElementById('dayModalContent');
+  target.innerHTML = '';
+  if (body) target.appendChild(body.cloneNode(true));
+
+  dayModal.classList.add('open');
+  dayModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  dayModal.querySelector('.day-modal-dialog').scrollTop = 0;
 }
+
+function closeDayModal() {
+  dayModal.classList.remove('open');
+  dayModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+
+// close on backdrop / close-button click
+dayModal.addEventListener('click', function(e){
+  if (e.target.hasAttribute('data-close')) closeDayModal();
+});
+// close on Escape
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' && dayModal.classList.contains('open')) closeDayModal();
+});
 
 // ============ REVEAL ON SCROLL ============
 (function(){
@@ -3570,12 +3697,6 @@ function toggleDay(header) {
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-})();
-
-// ============ OPEN FIRST CARD BY DEFAULT ============
-(function(){
-  var first = document.querySelector('.day-card');
-  if(first) first.classList.add('open');
 })();
 
 // ============ ANIMATE PROGRESS BAR ============
