@@ -705,6 +705,48 @@ h1 em { color: var(--leaf); font-style: italic; }
   color:var(--paper);
   padding:26px 28px;
   position:relative;
+  cursor:pointer;
+  user-select:none;
+  transition:background .2s;
+}
+.showcase-banner:hover{background:#231d18;}
+/* click-to-expand toggle */
+.showcase-toggle{
+  position:absolute;
+  top:24px; right:26px;
+  width:36px; height:36px;
+  border:2px solid var(--paper);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; line-height:1;
+  color:var(--paper);
+  transition:transform .35s cubic-bezier(.4,.2,.2,1), background .2s;
+  flex-shrink:0;
+}
+.project-showcase.open .showcase-toggle{
+  transform:rotate(45deg);
+  background:var(--ember);
+  border-color:var(--ember);
+}
+.showcase-banner .sb-hint{
+  font-family:'JetBrains Mono', monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--butter);
+  margin-top:12px;
+  opacity:.8;
+}
+.project-showcase.open .sb-hint{display:none;}
+/* collapsible body */
+.showcase-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .55s cubic-bezier(.4,.2,.2,1);
+}
+.project-showcase.open .showcase-body{
+  max-height:4000px;
+  transition:max-height .8s ease-in;
 }
 .showcase-banner .sb-kicker{
   font-family:'JetBrains Mono', monospace;
@@ -737,8 +779,8 @@ h1 em { color: var(--leaf); font-style: italic; }
   text-transform:uppercase;
   opacity:.85;
 }
-.showcase-body{padding:28px;}
-.showcase-body > .sc-label{
+.showcase-inner{padding:28px;}
+.showcase-inner > .sc-label{
   font-family:'JetBrains Mono', monospace;
   font-size:11px;
   letter-spacing:.2em;
@@ -747,9 +789,9 @@ h1 em { color: var(--leaf); font-style: italic; }
   margin:26px 0 12px;
   display:flex; align-items:center; gap:8px;
 }
-.showcase-body > .sc-label:first-child{margin-top:0;}
-.showcase-body > .sc-label::before{content:''; width:16px; height:2px; background:currentColor;}
-.showcase-body p{font-size:14.5px; line-height:1.75; max-width:760px; margin-bottom:12px;}
+.showcase-inner > .sc-label:first-child{margin-top:0;}
+.showcase-inner > .sc-label::before{content:''; width:16px; height:2px; background:currentColor;}
+.showcase-inner p{font-size:14.5px; line-height:1.75; max-width:760px; margin-bottom:12px;}
 
 /* architecture flow diagram */
 .arch-flow{
@@ -797,7 +839,7 @@ h1 em { color: var(--leaf); font-style: italic; }
 }
 
 /* innovation / use-case grids reuse .concept-grid + .concept-card */
-.showcase-body .sc-highlight{
+.showcase-inner .sc-highlight{
   background:var(--butter);
   border:2px solid var(--ink);
   border-radius:14px;
@@ -1195,7 +1237,8 @@ body.modal-open{overflow:hidden;}
 
   <!-- ============ FEATURED PROJECT SHOWCASE ============ -->
   <div class="project-showcase reveal">
-    <div class="showcase-banner">
+    <div class="showcase-banner" onclick="toggleShowcase(this)">
+      <span class="showcase-toggle" aria-hidden="true">+</span>
       <div class="sb-kicker"><span>⭐ Phase 04 Capstone · Team Build</span></div>
       <h3>Wireless <em>Screen Casting</em> System for Classrooms</h3>
       <p style="margin:10px 0 0; font-size:14.5px; opacity:.9; max-width:640px;">
@@ -1208,9 +1251,11 @@ body.modal-open{overflow:hidden;}
         <span class="sb-tag">EdTech</span>
         <span class="sb-tag">HDMI</span>
       </div>
+      <div class="sb-hint">▾ Click to view architecture &amp; innovation</div>
     </div>
 
     <div class="showcase-body">
+      <div class="showcase-inner">
 
       <div class="sc-label">The Idea</div>
       <p>
@@ -1277,7 +1322,8 @@ body.modal-open{overflow:hidden;}
         <li><strong>Scalable</strong> — one Pi per projector; the same design drops into any classroom or hall.</li>
       </ul>
 
-    </div>
+      </div><!-- end .showcase-inner -->
+    </div><!-- end .showcase-body -->
   </div>
 </section>
 
@@ -3877,6 +3923,11 @@ function closeDayModal() {
   dayModal.classList.remove('open');
   dayModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
+}
+
+// ============ TOGGLE PROJECT SHOWCASE ============
+function toggleShowcase(banner){
+  banner.closest('.project-showcase').classList.toggle('open');
 }
 
 // close on backdrop / close-button click
