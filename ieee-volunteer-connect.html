@@ -211,6 +211,75 @@ h1 em{ color:var(--cobalt); font-style:italic; }
 .callout-text{ font-size:14px; line-height:1.6; }
 .callout.cta a{ color:var(--butter); text-decoration:underline; font-weight:600; }
 
+/* ============ NUMBERED STEPS ============ */
+.steps{ margin:20px 0; counter-reset:step; }
+.step{
+  position:relative; padding:18px 20px 18px 66px; margin-bottom:14px;
+  border:2px solid var(--ink); border-radius:14px; background:var(--paper);
+  transition:transform .2s, box-shadow .2s;
+}
+.step:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--cobalt); }
+.step::before{
+  counter-increment:step; content:counter(step);
+  position:absolute; left:16px; top:16px;
+  width:34px; height:34px; border-radius:50%;
+  background:var(--cobalt); color:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces', serif; font-weight:900; font-size:1.1rem;
+}
+.step h5{ font-family:'Fraunces', serif; font-weight:700; font-size:1rem; margin-bottom:4px; }
+.step p{ font-size:13px; color:var(--ink-soft); line-height:1.6; margin:0; max-width:none; }
+
+/* ============ ROLE SPLIT ============ */
+.role-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:20px 0; }
+.role-card{
+  border:2px solid var(--ink); border-radius:16px; padding:24px; background:var(--paper);
+}
+.role-card.r-volunteer{ box-shadow:5px 5px 0 var(--leaf); }
+.role-card.r-admin{ box-shadow:5px 5px 0 var(--ember); }
+.role-card .role-badge{
+  display:inline-block; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 12px; border-radius:999px; margin-bottom:12px; font-weight:600;
+}
+.role-card.r-volunteer .role-badge{ background:var(--leaf); color:var(--paper); }
+.role-card.r-admin .role-badge{ background:var(--ember); color:var(--paper); }
+.role-card h4{ font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem; margin-bottom:10px; }
+.role-card ul{ list-style:none; padding:0; margin:0; }
+.role-card li{ font-size:13px; line-height:1.5; padding:6px 0 6px 22px; position:relative; }
+.role-card li::before{ content:'→'; position:absolute; left:0; color:var(--cobalt); font-weight:700; }
+
+/* ============ DATA TABLE ============ */
+.data-table{
+  width:100%; border-collapse:collapse; margin:16px 0; font-size:13px;
+  border:2px solid var(--ink); border-radius:10px; overflow:hidden;
+}
+.data-table th{
+  background:var(--ink); color:var(--paper); padding:10px 14px; text-align:left;
+  font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+}
+.data-table td{ padding:9px 14px; border-bottom:1px solid rgba(27,23,20,.15); }
+.data-table tr:nth-child(even) td{ background:rgba(27,23,20,.03); }
+.data-table tr:last-child td{ border-bottom:none; }
+
+/* ============ ARCH FLOW ============ */
+.arch-flow{ display:flex; align-items:stretch; flex-wrap:wrap; margin:16px 0; }
+.arch-node{
+  flex:1 1 150px; min-width:150px; border:2px solid var(--ink); border-radius:14px;
+  padding:16px 14px; background:var(--paper); text-align:center; z-index:1;
+}
+.arch-node .an-icon{ font-size:26px; display:block; margin-bottom:8px; }
+.arch-node h5{ font-family:'Fraunces', serif; font-weight:700; font-size:.95rem; margin-bottom:4px; }
+.arch-node p{ font-size:11.5px; color:var(--ink-soft); line-height:1.5; margin:0; max-width:none; }
+.arch-node.an-1{border-top:5px solid var(--cobalt);}
+.arch-node.an-2{border-top:5px solid var(--butter);}
+.arch-node.an-3{border-top:5px solid var(--ember);}
+.arch-node.an-4{border-top:5px solid var(--leaf);}
+.arch-arrow{ display:flex; align-items:center; justify-content:center; font-size:22px; color:var(--cobalt); padding:0 6px; }
+@media (max-width:640px){
+  .arch-flow{ flex-direction:column; }
+  .arch-arrow{ transform:rotate(90deg); padding:8px 0; }
+}
+
 /* ============ FOOTER ============ */
 footer{
   padding:40px 6vw; background:var(--ink); color:var(--paper);
@@ -240,7 +309,8 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 <nav aria-label="Primary navigation">
   <a href="index.html">← portfolio</a>
   <a href="#about">about</a>
-  <a href="#features">features</a>
+  <a href="#how">how</a>
+  <a href="#tech-detail">tech</a>
   <a href="https://ieee-vc-cek-main.web.app" target="_blank" rel="noopener" class="nav-cta">visit site ↗</a>
 </nav>
 
@@ -332,6 +402,199 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 
   <div class="cta-row reveal" style="margin-top:24px;">
     <a class="btn btn-primary" href="https://ieee-vc-cek-main.web.app" target="_blank" rel="noopener">🔗 Open IEEE Volunteer Connect ↗</a>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ THE PROBLEM ============ -->
+<section class="content" id="problem">
+  <div class="sec-label reveal">The Problem</div>
+  <h2 class="reveal">Why it <em>needed to exist.</em></h2>
+  <p class="reveal">
+    An active IEEE student branch runs dozens of events, workshops, and committees every year — all powered by volunteers. But the coordination behind it was scattered: a new Google Sheet for every event, sign-ups buried in WhatsApp groups, and contributions that never got properly recorded.
+  </p>
+  <div class="concept-grid reveal">
+    <div class="concept-card c-rose">
+      <h5>😵 Scattered Sign-ups</h5>
+      <p>Every event meant a fresh form and a new spreadsheet — nothing carried over.</p>
+    </div>
+    <div class="concept-card c-rose">
+      <h5>🕳️ Lost Contributions</h5>
+      <p>Volunteers put in hours that no one tracked, so recognition was inconsistent.</p>
+    </div>
+    <div class="concept-card c-rose">
+      <h5>❓ No Clear Picture</h5>
+      <p>Coordinators couldn't easily see who was active or where help was short.</p>
+    </div>
+    <div class="concept-card c-rose">
+      <h5>🔁 Repeated Effort</h5>
+      <p>The same manual setup, message-chasing, and follow-up before every single event.</p>
+    </div>
+  </div>
+  <div class="callout reveal">
+    <div class="callout-label">The insight</div>
+    <div class="callout-text">Volunteering shouldn't require admin gymnastics. Give the branch <strong>one durable home</strong> for opportunities and contributions, and both volunteers and coordinators win.</div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="content" id="how">
+  <div class="sec-label reveal">How It Works</div>
+  <h2 class="reveal">From sign-up to <em>recognition.</em></h2>
+
+  <div class="steps reveal">
+    <div class="step">
+      <h5>Discover opportunities</h5>
+      <p>Volunteers open the app and browse a live feed of events and tasks that need hands — all in one organized place.</p>
+    </div>
+    <div class="step">
+      <h5>Sign up in a tap</h5>
+      <p>Pick an opportunity and join it directly — no new form, no spreadsheet, no waiting for a reply in a group chat.</p>
+    </div>
+    <div class="step">
+      <h5>Contribute &amp; log work</h5>
+      <p>As volunteers take part, their involvement is tracked automatically against each event and initiative.</p>
+    </div>
+    <div class="step">
+      <h5>Coordinators get the full picture</h5>
+      <p>Organizers see who's signed up, who's active, and where more help is needed — in real time.</p>
+    </div>
+    <div class="step">
+      <h5>Recognition, made fair</h5>
+      <p>Because contributions are recorded, no effort goes unnoticed — the branch has a true history of who did what.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ ROLES ============ -->
+<section class="content" id="roles">
+  <div class="sec-label reveal">Two Sides</div>
+  <h2 class="reveal">Built for <em>everyone</em> in the branch.</h2>
+  <div class="role-grid reveal">
+    <div class="role-card r-volunteer">
+      <span class="role-badge">Volunteer</span>
+      <h4>The people doing the work</h4>
+      <ul>
+        <li>Browse and join open opportunities</li>
+        <li>Track their own contributions over time</li>
+        <li>Stay in the loop on upcoming events</li>
+        <li>Get recognized for the hours they put in</li>
+      </ul>
+    </div>
+    <div class="role-card r-admin">
+      <span class="role-badge">Coordinator</span>
+      <h4>The people organizing it</h4>
+      <ul>
+        <li>Post events and volunteering tasks</li>
+        <li>See sign-ups and active volunteers at a glance</li>
+        <li>Spot gaps where more help is needed</li>
+        <li>Keep one shared, up-to-date record for the branch</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ ARCHITECTURE / TECH ============ -->
+<section class="content" id="tech-detail">
+  <div class="sec-label reveal">Under the Hood</div>
+  <h2 class="reveal">How it's <em>built.</em></h2>
+  <p class="reveal">
+    A lightweight web app served straight from the browser — fast to load, easy to update, and hosted for free on Firebase so the branch never worries about servers.
+  </p>
+
+  <div class="arch-flow reveal">
+    <div class="arch-node an-1">
+      <span class="an-icon">🧑‍💻</span>
+      <h5>User</h5>
+      <p>Volunteer or coordinator on any browser</p>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node an-2">
+      <span class="an-icon">🖥️</span>
+      <h5>Web App</h5>
+      <p>HTML / CSS / JavaScript front-end</p>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node an-3">
+      <span class="an-icon">🔥</span>
+      <h5>Firebase</h5>
+      <p>Hosting + realtime data store</p>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-node an-4">
+      <span class="an-icon">📇</span>
+      <h5>Shared Record</h5>
+      <p>One source of truth for the branch</p>
+    </div>
+  </div>
+
+  <table class="data-table reveal">
+    <thead><tr><th>Layer</th><th>Choice</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Front-end</td><td>HTML · CSS · JavaScript</td><td>Fast, no heavy framework, works on any device</td></tr>
+      <tr><td>Hosting</td><td>Firebase Hosting</td><td>Free, HTTPS by default, instant global delivery</td></tr>
+      <tr><td>Data</td><td>Firebase (realtime)</td><td>Live updates so coordinators see changes instantly</td></tr>
+      <tr><td>Access</td><td>Web link</td><td>Nothing to install — just open the URL</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ IMPACT ============ -->
+<section class="content" id="impact">
+  <div class="sec-label reveal">Impact</div>
+  <h2 class="reveal">What <em>changed.</em></h2>
+  <ul class="feature-list reveal">
+    <li><strong>Faster onboarding</strong> — new volunteers can find and join work in minutes, not after chasing someone for a link.</li>
+    <li><strong>Less admin</strong> — coordinators stopped rebuilding spreadsheets for every event.</li>
+    <li><strong>Fairer recognition</strong> — a real record of contributions instead of relying on memory.</li>
+    <li><strong>More participation</strong> — lowering friction means more people actually show up and help.</li>
+  </ul>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ ROADMAP ============ -->
+<section class="content" id="next">
+  <div class="sec-label reveal">What's Next</div>
+  <h2 class="reveal">Where it's <em>headed.</em></h2>
+  <div class="concept-grid reveal">
+    <div class="concept-card c-cobalt">
+      <h5>🏅 Volunteer Badges</h5>
+      <p>Milestone recognition and leaderboards to celebrate consistent contributors.</p>
+    </div>
+    <div class="concept-card c-ember">
+      <h5>🔔 Smart Reminders</h5>
+      <p>Automated nudges before events so fewer sign-ups get forgotten.</p>
+    </div>
+    <div class="concept-card c-leaf">
+      <h5>📈 Analytics Dashboard</h5>
+      <p>Branch-level insights on participation trends across the year.</p>
+    </div>
+    <div class="concept-card c-rose">
+      <h5>🏫 Multi-Branch Ready</h5>
+      <p>A template other IEEE student branches can adopt for their own community.</p>
+    </div>
+  </div>
+
+  <div class="callout cta reveal">
+    <div class="callout-label">See it for yourself</div>
+    <div class="callout-text">
+      The platform is live now — explore it at <a href="https://ieee-vc-cek-main.web.app" target="_blank" rel="noopener">ieee-vc-cek-main.web.app ↗</a>
+    </div>
+  </div>
+
+  <div class="cta-row reveal" style="margin-top:24px;">
+    <a class="btn btn-primary" href="https://ieee-vc-cek-main.web.app" target="_blank" rel="noopener">🔗 Visit IEEE Volunteer Connect ↗</a>
+    <a class="btn btn-ghost" href="index.html#projects">← Back to portfolio</a>
   </div>
 </section>
 
