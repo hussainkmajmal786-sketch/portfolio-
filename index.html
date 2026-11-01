@@ -739,6 +739,11 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
 .pm-card{position:relative; width:min(520px,100%); background:var(--paper); color:var(--ink); border:2px solid var(--ink); border-radius:18px; padding:32px 28px 28px; box-shadow:8px 8px 0 var(--ember); animation:pmPop .25s ease;}
 .pm-card h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-.02em; font-size:clamp(28px,5vw,38px); line-height:1.1; margin:0 0 12px;}
 .pm-card p{margin:0 0 18px; line-height:1.6; color:var(--ink-soft);}
+.pm-founder[hidden]{display:none;}
+.pm-founder{display:flex; align-items:center; gap:12px; margin:0 0 18px; padding:12px 14px; border:2px solid var(--ink); border-radius:12px; background:var(--paper-deep);}
+.pm-founder .pm-av{flex:none; width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--paper); display:grid; place-items:center; font-weight:600; font-size:14px;}
+.pm-founder small{display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+.pm-founder b{display:block; font-size:16px;}
 .pm-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
 .pm-actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
 .pm-visit{display:inline-block; background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:999px; text-decoration:none; font-weight:600;}
@@ -1011,7 +1016,7 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
       <span class="project-arrow">↗</span>
     </a>
 
-    <a class="project" href="https://fund-easy.vercel.app/" id="project-fundeasy" data-modal data-title="FundEasy" data-url="https://fund-easy.vercel.app/" data-about="A web app built to make funding simple and accessible. Live on Vercel — open it up and try it.">
+    <a class="project" href="https://fund-easy.vercel.app/" id="project-fundeasy" data-modal data-founder="Ajmal Hussain K M" data-founder-role="Founder &amp; CMO" data-title="FundEasy" data-url="https://fund-easy.vercel.app/" data-about="A web app built to make funding simple and accessible. Live on Vercel — open it up and try it.">
       <span class="project-num">09</span>
       <div class="project-body">
         <h3>FundEasy</h3>
@@ -1366,6 +1371,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(function(link){
     <button class="pm-close" id="pmClose" aria-label="Close">&times;</button>
     <h3 id="pmTitle"></h3>
     <p id="pmAbout"></p>
+    <div class="pm-founder" id="pmFounder" hidden></div>
     <div class="pm-tags" id="pmTags"></div>
     <div class="pm-actions" id="pmActions"></div>
   </div>
@@ -1378,6 +1384,14 @@ document.querySelectorAll('nav a[href^="#"]').forEach(function(link){
     last=a;
     document.getElementById('pmTitle').textContent=a.dataset.title;
     document.getElementById('pmAbout').textContent=a.dataset.about;
+    var f=document.getElementById('pmFounder');
+    if(a.dataset.founder){
+      f.innerHTML=''; var av=document.createElement('span'); av.className='pm-av';
+      av.textContent=a.dataset.founder.split(' ').filter(Boolean).slice(0,2).map(function(w){return w[0];}).join('');
+      var w=document.createElement('div'); var sm=document.createElement('small'); sm.textContent=a.dataset.founderRole||'Founder';
+      var b=document.createElement('b'); b.textContent=a.dataset.founder; w.appendChild(sm); w.appendChild(b);
+      f.appendChild(av); f.appendChild(w); f.hidden=false;
+    } else { f.hidden=true; }
     var tags=document.getElementById('pmTags'); tags.innerHTML='';
     a.querySelectorAll('.project-tag').forEach(function(t){var c=document.createElement('span'); c.className='project-tag'; c.textContent=t.textContent; tags.appendChild(c);});
     var act=document.getElementById('pmActions'); act.innerHTML='';
