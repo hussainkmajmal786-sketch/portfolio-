@@ -9,33 +9,35 @@
   color-scheme: dark;
 
   /* board + surfaces */
-  --bg:        #060d09;   /* bare board, deep green-black */
-  --bg-2:      #08130d;
-  --panel:     #0b1912;   /* solder-mask panel */
-  --panel-2:   #0f2219;
-  --panel-3:   #142b20;   /* raised strip / table head */
-  --chip:      #0f1311;   /* IC epoxy body */
-  --chip-edge: #2b3530;
-  --line:      #1b3527;   /* faint trace */
-  --line-2:    #2a5039;   /* visible trace / border */
-  --pad:       #a4adb0;   /* tinned pad / IC pin */
+  --bg:        #0b0907;   /* bare board, warm near-black */
+  --bg-2:      #0e0c09;
+  --panel:     #14110c;   /* solder-mask panel */
+  --panel-2:   #1a1610;
+  --panel-3:   #221c13;   /* raised strip / table head */
+  --chip:      #121110;   /* IC epoxy body */
+  --chip-edge: #36322b;
+  --line:      #2c251a;   /* faint trace */
+  --line-2:    #45392a;   /* visible trace / border */
+  --pad:       #b2aca2;   /* tinned pad / IC pin */
 
   /* text (all >= 4.5:1 on --bg / --panel / --panel-2) */
-  --text:      #e3eee6;
-  --text-dim:  #b0c4b7;
-  --text-mute: #8aa395;
+  --text:      #f2ece1;
+  --text-dim:  #cbbfac;
+  --text-mute: #a39886;
 
   /* signal colours */
-  --phosphor:  #5cff9d;   /* scope green */
-  --amber:     #ffb347;
+  --primary:   #ffb000;   /* primary amber (beam, LEDs, accents) */
+  --primary-hi:#ffc233;   /* lighter amber for hover */
+  --primary-lo:#e09a00;   /* darker amber */
+  --amber:     #ffcf5c;   /* light amber: "on the way" status */
   --cyan:      #62d9ff;
   --copper:    #e09a5f;
   --copper-dim:#7a4f2e;
   --rose:      #ff8fab;
   --red:       #ff6b6b;
-  --on-accent: #03140b;   /* text on bright fills */
+  --on-accent: #1a1100;   /* text on bright fills */
 
-  --accent:    var(--phosphor);
+  --accent:    var(--primary);
   --accent2:   var(--amber);
 
   /* legacy aliases (old class names in sub-pages still resolve) */
@@ -44,7 +46,7 @@
   --ink:        var(--text);
   --ink-soft:   var(--text-dim);
   --ember:      var(--amber);
-  --leaf:       var(--phosphor);
+  --leaf:       var(--primary);
   --cobalt:     var(--cyan);
   --butter:     #ffd27a;
 
@@ -53,7 +55,7 @@
 
   --radius: 4px;
   --lift: 0 10px 28px rgba(0,0,0,.45), 0 0 0 1px var(--line-2);
-  --glow: 0 0 0 1px var(--phosphor), 0 0 22px rgba(92,255,157,.18);
+  --glow: 0 0 0 1px var(--primary), 0 0 22px rgba(255,176,0,.18);
 }
 
 /* ============ BASE ============ */
@@ -68,16 +70,16 @@ body{
   line-height:1.6;
   /* schematic graph paper: fine 16px grid + major 80px grid */
   background-image:
-    radial-gradient(ellipse at 15% 0%, rgba(92,255,157,.07), transparent 55%),
+    radial-gradient(ellipse at 15% 0%, rgba(255,176,0,.07), transparent 55%),
     radial-gradient(ellipse at 100% 40%, rgba(98,217,255,.05), transparent 50%),
-    linear-gradient(rgba(92,255,157,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(92,255,157,.045) 1px, transparent 1px),
-    linear-gradient(rgba(92,255,157,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(92,255,157,.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,176,0,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,176,0,.045) 1px, transparent 1px),
+    linear-gradient(rgba(255,176,0,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,176,0,.025) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 80px 80px, 80px 80px, 16px 16px, 16px 16px;
 }
 
-::selection{background:var(--phosphor); color:var(--on-accent);}
+::selection{background:var(--primary); color:var(--on-accent);}
 a{color:inherit; text-decoration:none;}
 strong, b{color:var(--text); font-weight:600;}
 em{font-style:normal;}
@@ -87,7 +89,7 @@ em{font-style:normal;}
 /* ============ SKIP LINK ============ */
 .skip-link{
   position:absolute; top:-100%; left:16px;
-  background:var(--phosphor); color:var(--on-accent);
+  background:var(--primary); color:var(--on-accent);
   padding:10px 18px; border-radius:0 0 var(--radius) var(--radius);
   z-index:200; font-size:13px; font-weight:600;
   transition:top .2s;
@@ -98,11 +100,11 @@ em{font-style:normal;}
 .led{
   display:inline-block; flex:none;
   width:8px; height:8px; border-radius:50%;
-  background:var(--phosphor);
-  box-shadow:0 0 6px var(--phosphor), 0 0 0 2px rgba(92,255,157,.15);
+  background:var(--primary);
+  box-shadow:0 0 6px var(--primary), 0 0 0 2px rgba(255,176,0,.15);
   animation:ledBlink 2.4s ease-in-out infinite;
 }
-.led.amber{background:var(--amber); box-shadow:0 0 6px var(--amber), 0 0 0 2px rgba(255,179,71,.15);}
+.led.amber{background:var(--amber); box-shadow:0 0 6px var(--amber), 0 0 0 2px rgba(255,207,92,.15);}
 @keyframes ledBlink{0%,100%{opacity:1;} 50%{opacity:.45;}}
 
 /* ============ NAV — pin header ============ */
@@ -113,7 +115,7 @@ nav{
   z-index:100;
   display:flex; align-items:center; gap:4px;
   padding:6px 8px 6px 12px;
-  background:rgba(8,19,13,.88);
+  background:rgba(15,12,9,.88);
   -webkit-backdrop-filter:blur(8px);
   backdrop-filter:blur(8px);
   border:1px solid var(--line-2);
@@ -146,14 +148,14 @@ nav a::before{
   border-radius:1px;
   transition:background .2s, border-color .2s, box-shadow .2s;
 }
-nav a:hover, nav a:focus-visible{color:var(--text); background:rgba(92,255,157,.07);}
+nav a:hover, nav a:focus-visible{color:var(--text); background:rgba(255,176,0,.07);}
 nav a:hover::before, nav a:focus-visible::before{
-  background:var(--phosphor); border-color:var(--phosphor);
-  box-shadow:0 0 8px var(--phosphor);
+  background:var(--primary); border-color:var(--primary);
+  box-shadow:0 0 8px var(--primary);
 }
 nav a.nav-resume, nav a.nav-cta{
   color:var(--on-accent);
-  background:var(--phosphor);
+  background:var(--primary);
   font-weight:600;
   margin-left:4px;
 }
@@ -244,7 +246,7 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
   background:var(--panel);
   transition:color .2s, border-color .2s, transform .2s;
 }
-.back-link:hover, .back-link:focus-visible{color:var(--phosphor); border-color:var(--phosphor); transform:translateX(-3px);}
+.back-link:hover, .back-link:focus-visible{color:var(--primary); border-color:var(--primary); transform:translateX(-3px);}
 
 .page-header h1{
   font-family:var(--font-display);
@@ -271,8 +273,8 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
   font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
   color:var(--amber);
   padding:5px 11px;
-  border:1px solid rgba(255,179,71,.5); border-radius:3px;
-  background:rgba(255,179,71,.08);
+  border:1px solid rgba(255,207,92,.5); border-radius:3px;
+  background:rgba(255,207,92,.08);
   vertical-align:middle; margin-left:8px;
 }
 .soon-tag .sd{width:7px; height:7px; border-radius:50%; background:var(--amber); box-shadow:0 0 6px var(--amber); animation:ledBlink 1.4s infinite;}
@@ -290,7 +292,7 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 }
 .course-badge .badge-dot{
   width:8px; height:8px; border-radius:50%;
-  background:var(--phosphor); box-shadow:0 0 6px var(--phosphor);
+  background:var(--primary); box-shadow:0 0 6px var(--primary);
   animation:ledBlink 2.4s ease-in-out infinite;
 }
 .course-badge strong{color:var(--accent);}
@@ -307,7 +309,7 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 .btn-primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent);}
 .btn-primary:hover, .btn-primary:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.08), 0 0 24px color-mix(in srgb, var(--accent) 40%, transparent); transform:translateY(-2px);}
 .btn-ghost{background:var(--panel); color:var(--text);}
-.btn-ghost:hover, .btn-ghost:focus-visible{border-color:var(--phosphor); color:var(--phosphor);}
+.btn-ghost:hover, .btn-ghost:focus-visible{border-color:var(--primary); color:var(--primary);}
 
 .stats-row{display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 0;}
 .stat-pill{
@@ -355,8 +357,8 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 .content p{font-size:14.5px; line-height:1.8; max-width:740px; margin-bottom:16px; color:var(--text-dim);}
 .content p strong{color:var(--text);}
 .highlight{
-  background:rgba(92,255,157,.1);
-  color:var(--phosphor);
+  background:rgba(255,176,0,.1);
+  color:var(--primary);
   padding:1px 5px; border-radius:2px;
   box-decoration-break:clone; -webkit-box-decoration-break:clone;
 }
@@ -368,12 +370,12 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
   background:var(--panel);
   transition:border-color .2s, transform .2s, box-shadow .2s;
 }
-.concept-card:hover{transform:translateY(-2px); border-color:var(--phosphor); box-shadow:0 0 18px rgba(92,255,157,.1);}
+.concept-card:hover{transform:translateY(-2px); border-color:var(--primary); box-shadow:0 0 18px rgba(255,176,0,.1);}
 .concept-card h5{font-family:var(--font-display); font-weight:600; font-size:1rem; margin-bottom:6px; color:var(--text);}
 .concept-card p{font-size:12.5px; color:var(--text-dim); line-height:1.6; margin:0;}
 .concept-card.c-cobalt{border-left:3px solid var(--cyan);}
 .concept-card.c-ember{border-left:3px solid var(--amber);}
-.concept-card.c-leaf{border-left:3px solid var(--phosphor);}
+.concept-card.c-leaf{border-left:3px solid var(--primary);}
 .concept-card.c-rose{border-left:3px solid var(--rose);}
 .concept-card.c-butter{border-left:3px solid var(--butter);}
 
@@ -387,14 +389,14 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 }
 .feature-list li::before{
   content:'✔'; position:absolute; left:14px; top:11px;
-  color:var(--phosphor); font-weight:700;
+  color:var(--primary); font-weight:700;
 }
 
 .tech-tags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;}
 .tech-tag{
   font-size:11.5px; padding:5px 11px;
   border:1px solid var(--line-2); border-radius:3px;
-  background:#121815; color:var(--text-dim); letter-spacing:.05em;
+  background:#17140f; color:var(--text-dim); letter-spacing:.05em;
 }
 
 .callout{
@@ -433,13 +435,13 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 
 .role-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,280px),1fr)); gap:14px; margin:20px 0;}
 .role-card{border:1px solid var(--line-2); border-radius:var(--radius); padding:22px; background:var(--panel);}
-.role-card.r-volunteer{border-top:3px solid var(--phosphor);}
+.role-card.r-volunteer{border-top:3px solid var(--primary);}
 .role-card.r-admin{border-top:3px solid var(--amber);}
 .role-card .role-badge{
   display:inline-block; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
   padding:3px 10px; border-radius:2px; margin-bottom:12px; font-weight:600;
 }
-.role-card.r-volunteer .role-badge{background:var(--phosphor); color:var(--on-accent);}
+.role-card.r-volunteer .role-badge{background:var(--primary); color:var(--on-accent);}
 .role-card.r-admin .role-badge{background:var(--amber); color:var(--on-accent);}
 .role-card h4{font-family:var(--font-display); font-weight:600; font-size:1.12rem; margin-bottom:10px;}
 .role-card ul{list-style:none; padding:0; margin:0;}
@@ -476,7 +478,7 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 .arch-node.an-1, .arch-node.an-source{border-top:3px solid var(--cyan);}
 .arch-node.an-2, .arch-node.an-link{border-top:3px solid var(--butter);}
 .arch-node.an-3, .arch-node.an-brain{border-top:3px solid var(--amber);}
-.arch-node.an-4, .arch-node.an-out{border-top:3px solid var(--phosphor);}
+.arch-node.an-4, .arch-node.an-out{border-top:3px solid var(--primary);}
 .arch-arrow{display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--copper); padding:0 6px; flex:0 0 auto;}
 @media (max-width:640px){
   .arch-flow{flex-direction:column;}
