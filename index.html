@@ -732,6 +732,23 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
   h1.name .word{opacity:1;}
   .hero-kicker, .tagline, .meta-row, .scroll-hint{opacity:1;}
 }
+
+/* ============ PROJECT POPUP ============ */
+.pm-overlay{position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; background:rgba(27,23,20,.6); backdrop-filter:blur(4px);}
+.pm-overlay.open{display:flex; animation:pmFade .2s ease;}
+.pm-card{position:relative; width:min(520px,100%); background:var(--paper); color:var(--ink); border:2px solid var(--ink); border-radius:18px; padding:32px 28px 28px; box-shadow:8px 8px 0 var(--ember); animation:pmPop .25s ease;}
+.pm-card h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-.02em; font-size:clamp(28px,5vw,38px); line-height:1.1; margin:0 0 12px;}
+.pm-card p{margin:0 0 18px; line-height:1.6; color:var(--ink-soft);}
+.pm-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
+.pm-actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
+.pm-visit{display:inline-block; background:var(--ink); color:var(--paper); padding:12px 20px; border-radius:999px; text-decoration:none; font-weight:600;}
+.pm-visit:hover{background:var(--ember);}
+.pm-soon{font-size:14px; color:var(--ink-soft); font-style:italic;}
+.pm-close{position:absolute; top:12px; right:14px; width:36px; height:36px; border:2px solid var(--ink); border-radius:50%; background:transparent; color:var(--ink); font-size:20px; line-height:1; cursor:pointer;}
+.pm-close:hover{background:var(--ink); color:var(--paper);}
+@keyframes pmFade{from{opacity:0}to{opacity:1}}
+@keyframes pmPop{from{opacity:0; transform:translateY(16px) scale(.97)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){.pm-overlay.open,.pm-card{animation:none;}}
 </style>
 </head>
 
@@ -975,6 +992,59 @@ footer .heart{color:var(--ember); animation:beat 1.2s ease-in-out infinite; disp
           <span class="project-tag">Director</span>
           <span class="project-tag">Social Media</span>
           <span class="project-tag">Leadership</span>
+        </div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="#" id="project-argus" data-modal data-title="Argus" data-url="" data-about="An AI-powered investigation system built for cybersecurity teams, helping analysts dig through incidents and connect the dots faster. Currently in development.">
+      <span class="project-num">08</span>
+      <div class="project-body">
+        <h3>Argus</h3>
+        <p>An AI-powered investigation system built for cybersecurity teams — helping analysts dig through incidents faster.</p>
+        <div class="project-tags">
+          <span class="project-tag">AI</span>
+          <span class="project-tag">Cybersecurity</span>
+          <span class="project-tag">Investigation</span>
+        </div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://fund-easy.vercel.app/" id="project-fundeasy" data-modal data-title="FundEasy" data-url="https://fund-easy.vercel.app/" data-about="A web app built to make funding simple and accessible. Live on Vercel — open it up and try it.">
+      <span class="project-num">09</span>
+      <div class="project-body">
+        <h3>FundEasy</h3>
+        <p>A web app built to make funding simple and accessible. Live and ready to try.</p>
+        <div class="project-tags">
+          <span class="project-tag">Web App</span>
+          <span class="project-tag">Live</span>
+        </div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://xerox-lake.vercel.app/" id="project-xerox" data-modal data-title="Xerox" data-url="https://xerox-lake.vercel.app/" data-about="A web project deployed live on Vercel. Open it up and take a look.">
+      <span class="project-num">10</span>
+      <div class="project-body">
+        <h3>Xerox</h3>
+        <p>A web project deployed live on Vercel. Open it up and take a look.</p>
+        <div class="project-tags">
+          <span class="project-tag">Web App</span>
+          <span class="project-tag">Live</span>
+        </div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://staiway.pages.dev/" id="project-stairway" data-modal data-title="Stairway" data-url="https://staiway.pages.dev/" data-about="A web project deployed live on Cloudflare Pages. Open it up and take a look.">
+      <span class="project-num">11</span>
+      <div class="project-body">
+        <h3>Stairway</h3>
+        <p>A web project deployed live on Cloudflare Pages. Open it up and take a look.</p>
+        <div class="project-tags">
+          <span class="project-tag">Web App</span>
+          <span class="project-tag">Live</span>
         </div>
       </div>
       <span class="project-arrow">↗</span>
@@ -1289,5 +1359,42 @@ document.querySelectorAll('nav a[href^="#"]').forEach(function(link){
 });
 </script>
 
+
+<!-- ============ PROJECT POPUP ============ -->
+<div class="pm-overlay" id="pmOverlay" aria-hidden="true">
+  <div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <button class="pm-close" id="pmClose" aria-label="Close">&times;</button>
+    <h3 id="pmTitle"></h3>
+    <p id="pmAbout"></p>
+    <div class="pm-tags" id="pmTags"></div>
+    <div class="pm-actions" id="pmActions"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var ov=document.getElementById('pmOverlay'); if(!ov) return;
+  var last=null;
+  function open(a){
+    last=a;
+    document.getElementById('pmTitle').textContent=a.dataset.title;
+    document.getElementById('pmAbout').textContent=a.dataset.about;
+    var tags=document.getElementById('pmTags'); tags.innerHTML='';
+    a.querySelectorAll('.project-tag').forEach(function(t){var c=document.createElement('span'); c.className='project-tag'; c.textContent=t.textContent; tags.appendChild(c);});
+    var act=document.getElementById('pmActions'); act.innerHTML='';
+    if(a.dataset.url){
+      var l=document.createElement('a'); l.className='pm-visit'; l.href=a.dataset.url; l.target='_blank'; l.rel='noopener noreferrer'; l.textContent='Visit live site \u2197'; act.appendChild(l);
+    } else {
+      var n=document.createElement('span'); n.className='pm-soon'; n.textContent='No public link yet \u2014 on the way.'; act.appendChild(n);
+    }
+    ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    document.getElementById('pmClose').focus();
+  }
+  function close(){ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(last) last.focus();}
+  document.querySelectorAll('a.project[data-modal]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault(); open(a);});});
+  document.getElementById('pmClose').addEventListener('click',close);
+  ov.addEventListener('click',function(e){if(e.target===ov) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('open')) close();});
+})();
+</script>
 </body>
 </html>
