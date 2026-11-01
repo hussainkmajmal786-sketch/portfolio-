@@ -278,7 +278,8 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
 .soon-tag .sd{width:7px; height:7px; border-radius:50%; background:var(--amber); box-shadow:0 0 6px var(--amber); animation:ledBlink 1.4s infinite;}
 
 .course-badge{
-  display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap;
+  display:inline-flex; align-items:center; gap:12px;
+  max-width:100%;
   background:var(--panel);
   color:var(--text);
   padding:11px 18px;
@@ -293,6 +294,7 @@ footer .heart{color:var(--red); display:inline-block; animation:beat 1.2s ease-i
   animation:ledBlink 2.4s ease-in-out infinite;
 }
 .course-badge strong{color:var(--accent);}
+.course-badge > span:last-child{min-width:0;}
 
 .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
 .btn{
